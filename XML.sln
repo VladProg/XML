@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31829.152
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ParsingXML", "ParsingXML\ParsingXML.csproj", "{D9EC6D8C-C839-432D-855A-FC9425C01FEE}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "CreatingXML", "CreatingXML\CreatingXML.pyproj", "{F51EF374-F807-49A4-AC4A-CFFBEDDE198C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{44A4EA5A-18B0-425C-817B-5C824CACF2D0}"
+	ProjectSection(SolutionItems) = preProject
+		timetable.xml = timetable.xml
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D9EC6D8C-C839-432D-855A-FC9425C01FEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9EC6D8C-C839-432D-855A-FC9425C01FEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9EC6D8C-C839-432D-855A-FC9425C01FEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9EC6D8C-C839-432D-855A-FC9425C01FEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F51EF374-F807-49A4-AC4A-CFFBEDDE198C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F51EF374-F807-49A4-AC4A-CFFBEDDE198C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {215C347B-86EF-4904-969A-B57860FFABE7}
+	EndGlobalSection
+EndGlobal
