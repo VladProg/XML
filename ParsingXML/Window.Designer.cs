@@ -31,7 +31,6 @@ namespace ParsingXML
         {
             System.Windows.Forms.Panel panel1;
             System.Windows.Forms.GroupBox groupBox2;
-            System.Windows.Forms.GroupBox groupBox1;
             System.Windows.Forms.FlowLayoutPanel flowLayoutPanel8;
             System.Windows.Forms.Label label8;
             System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
@@ -46,9 +45,14 @@ namespace ParsingXML
             System.Windows.Forms.Label label10;
             System.Windows.Forms.Button button1;
             System.Windows.Forms.GroupBox groupBox3;
+            System.Windows.Forms.GroupBox groupBox4;
+            System.Windows.Forms.GroupBox groupBox5;
+            System.Windows.Forms.Panel panel2;
+            this.buttonProcess = new System.Windows.Forms.Button();
             this.radioButtonLinqToXml = new System.Windows.Forms.RadioButton();
             this.radioButtonSax = new System.Windows.Forms.RadioButton();
             this.radioButtonDom = new System.Windows.Forms.RadioButton();
+            this.groupBoxFilters = new System.Windows.Forms.GroupBox();
             this.comboBoxTeacherName = new System.Windows.Forms.ComboBox();
             this.comboBoxSubject = new System.Windows.Forms.ComboBox();
             this.comboBoxFormat = new System.Windows.Forms.ComboBox();
@@ -60,7 +64,6 @@ namespace ParsingXML
             this.flowLayoutPanelResults = new System.Windows.Forms.FlowLayoutPanel();
             panel1 = new System.Windows.Forms.Panel();
             groupBox2 = new System.Windows.Forms.GroupBox();
-            groupBox1 = new System.Windows.Forms.GroupBox();
             flowLayoutPanel8 = new System.Windows.Forms.FlowLayoutPanel();
             label8 = new System.Windows.Forms.Label();
             flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
@@ -75,26 +78,42 @@ namespace ParsingXML
             label10 = new System.Windows.Forms.Label();
             button1 = new System.Windows.Forms.Button();
             groupBox3 = new System.Windows.Forms.GroupBox();
+            groupBox4 = new System.Windows.Forms.GroupBox();
+            groupBox5 = new System.Windows.Forms.GroupBox();
+            panel2 = new System.Windows.Forms.Panel();
             panel1.SuspendLayout();
             groupBox2.SuspendLayout();
-            groupBox1.SuspendLayout();
+            this.groupBoxFilters.SuspendLayout();
             flowLayoutPanel8.SuspendLayout();
             flowLayoutPanel4.SuspendLayout();
             flowLayoutPanel7.SuspendLayout();
             flowLayoutPanel3.SuspendLayout();
             groupBox3.SuspendLayout();
+            groupBox4.SuspendLayout();
+            groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            panel1.Controls.Add(this.buttonProcess);
             panel1.Controls.Add(groupBox2);
-            panel1.Controls.Add(groupBox1);
-            panel1.Controls.Add(button1);
+            panel1.Controls.Add(this.groupBoxFilters);
             panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            panel1.Location = new System.Drawing.Point(0, 0);
+            panel1.Location = new System.Drawing.Point(3, 23);
             panel1.Name = "panel1";
-            panel1.Size = new System.Drawing.Size(808, 555);
+            panel1.Size = new System.Drawing.Size(808, 353);
             panel1.TabIndex = 0;
+            // 
+            // buttonProcess
+            // 
+            this.buttonProcess.Location = new System.Drawing.Point(577, 23);
+            this.buttonProcess.Name = "buttonProcess";
+            this.buttonProcess.Size = new System.Drawing.Size(185, 53);
+            this.buttonProcess.TabIndex = 1;
+            this.buttonProcess.Text = "Завантажити";
+            this.buttonProcess.UseVisualStyleBackColor = true;
+            this.buttonProcess.Visible = false;
+            this.buttonProcess.Click += new System.EventHandler(this.buttonProcess_Click);
             // 
             // groupBox2
             // 
@@ -103,9 +122,9 @@ namespace ParsingXML
             groupBox2.Controls.Add(this.radioButtonLinqToXml);
             groupBox2.Controls.Add(this.radioButtonSax);
             groupBox2.Controls.Add(this.radioButtonDom);
-            groupBox2.Location = new System.Drawing.Point(29, 330);
+            groupBox2.Location = new System.Drawing.Point(12, 14);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new System.Drawing.Size(750, 62);
+            groupBox2.Size = new System.Drawing.Size(559, 62);
             groupBox2.TabIndex = 8;
             groupBox2.TabStop = false;
             groupBox2.Text = "Спосіб аналізу";
@@ -114,11 +133,10 @@ namespace ParsingXML
             // 
             this.radioButtonLinqToXml.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.radioButtonLinqToXml.AutoSize = true;
-            this.radioButtonLinqToXml.Location = new System.Drawing.Point(597, 26);
+            this.radioButtonLinqToXml.Location = new System.Drawing.Point(370, 26);
             this.radioButtonLinqToXml.Name = "radioButtonLinqToXml";
             this.radioButtonLinqToXml.Size = new System.Drawing.Size(114, 24);
             this.radioButtonLinqToXml.TabIndex = 2;
-            this.radioButtonLinqToXml.TabStop = true;
             this.radioButtonLinqToXml.Text = "LINQ to XML";
             this.radioButtonLinqToXml.UseVisualStyleBackColor = true;
             this.radioButtonLinqToXml.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
@@ -127,11 +145,10 @@ namespace ParsingXML
             // 
             this.radioButtonSax.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.radioButtonSax.AutoSize = true;
-            this.radioButtonSax.Location = new System.Drawing.Point(347, 26);
+            this.radioButtonSax.Location = new System.Drawing.Point(194, 26);
             this.radioButtonSax.Name = "radioButtonSax";
             this.radioButtonSax.Size = new System.Drawing.Size(57, 24);
             this.radioButtonSax.TabIndex = 1;
-            this.radioButtonSax.TabStop = true;
             this.radioButtonSax.Text = "SAX";
             this.radioButtonSax.UseVisualStyleBackColor = true;
             this.radioButtonSax.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
@@ -143,25 +160,25 @@ namespace ParsingXML
             this.radioButtonDom.Name = "radioButtonDom";
             this.radioButtonDom.Size = new System.Drawing.Size(65, 24);
             this.radioButtonDom.TabIndex = 0;
-            this.radioButtonDom.TabStop = true;
             this.radioButtonDom.Text = "DOM";
             this.radioButtonDom.UseVisualStyleBackColor = true;
             this.radioButtonDom.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
             // 
-            // groupBox1
+            // groupBoxFilters
             // 
-            groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.groupBoxFilters.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            groupBox1.Controls.Add(flowLayoutPanel8);
-            groupBox1.Controls.Add(flowLayoutPanel4);
-            groupBox1.Controls.Add(flowLayoutPanel7);
-            groupBox1.Controls.Add(flowLayoutPanel3);
-            groupBox1.Location = new System.Drawing.Point(29, 48);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new System.Drawing.Size(750, 257);
-            groupBox1.TabIndex = 1;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "Фільтри";
+            this.groupBoxFilters.Controls.Add(flowLayoutPanel8);
+            this.groupBoxFilters.Controls.Add(flowLayoutPanel4);
+            this.groupBoxFilters.Controls.Add(flowLayoutPanel7);
+            this.groupBoxFilters.Controls.Add(flowLayoutPanel3);
+            this.groupBoxFilters.Location = new System.Drawing.Point(12, 82);
+            this.groupBoxFilters.Name = "groupBoxFilters";
+            this.groupBoxFilters.Size = new System.Drawing.Size(750, 257);
+            this.groupBoxFilters.TabIndex = 1;
+            this.groupBoxFilters.TabStop = false;
+            this.groupBoxFilters.Text = "Фільтри";
+            this.groupBoxFilters.Visible = false;
             // 
             // flowLayoutPanel8
             // 
@@ -182,7 +199,7 @@ namespace ParsingXML
             this.comboBoxTeacherName.Location = new System.Drawing.Point(90, 33);
             this.comboBoxTeacherName.Name = "comboBoxTeacherName";
             this.comboBoxTeacherName.Size = new System.Drawing.Size(651, 28);
-            this.comboBoxTeacherName.TabIndex = 0;
+            this.comboBoxTeacherName.TabIndex = 9;
             // 
             // label8
             // 
@@ -206,7 +223,7 @@ namespace ParsingXML
             flowLayoutPanel4.Name = "flowLayoutPanel4";
             flowLayoutPanel4.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
             flowLayoutPanel4.Size = new System.Drawing.Size(744, 64);
-            flowLayoutPanel4.TabIndex = 3;
+            flowLayoutPanel4.TabIndex = 4;
             // 
             // comboBoxSubject
             // 
@@ -214,7 +231,7 @@ namespace ParsingXML
             this.comboBoxSubject.Location = new System.Drawing.Point(90, 33);
             this.comboBoxSubject.Name = "comboBoxSubject";
             this.comboBoxSubject.Size = new System.Drawing.Size(651, 28);
-            this.comboBoxSubject.TabIndex = 0;
+            this.comboBoxSubject.TabIndex = 8;
             // 
             // label4
             // 
@@ -242,7 +259,7 @@ namespace ParsingXML
             flowLayoutPanel7.Name = "flowLayoutPanel7";
             flowLayoutPanel7.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
             flowLayoutPanel7.Size = new System.Drawing.Size(744, 64);
-            flowLayoutPanel7.TabIndex = 6;
+            flowLayoutPanel7.TabIndex = 3;
             // 
             // comboBoxFormat
             // 
@@ -250,7 +267,7 @@ namespace ParsingXML
             this.comboBoxFormat.Location = new System.Drawing.Point(612, 33);
             this.comboBoxFormat.Name = "comboBoxFormat";
             this.comboBoxFormat.Size = new System.Drawing.Size(129, 28);
-            this.comboBoxFormat.TabIndex = 0;
+            this.comboBoxFormat.TabIndex = 7;
             // 
             // label7
             // 
@@ -268,7 +285,7 @@ namespace ParsingXML
             this.comboBoxWeek.Location = new System.Drawing.Point(336, 33);
             this.comboBoxWeek.Name = "comboBoxWeek";
             this.comboBoxWeek.Size = new System.Drawing.Size(119, 28);
-            this.comboBoxWeek.TabIndex = 4;
+            this.comboBoxWeek.TabIndex = 6;
             // 
             // label2
             // 
@@ -286,7 +303,7 @@ namespace ParsingXML
             this.comboBoxSubgroup.Location = new System.Drawing.Point(91, 33);
             this.comboBoxSubgroup.Name = "comboBoxSubgroup";
             this.comboBoxSubgroup.Size = new System.Drawing.Size(88, 28);
-            this.comboBoxSubgroup.TabIndex = 2;
+            this.comboBoxSubgroup.TabIndex = 5;
             // 
             // label1
             // 
@@ -321,7 +338,7 @@ namespace ParsingXML
             this.comboBoxPairIndex.Location = new System.Drawing.Point(612, 3);
             this.comboBoxPairIndex.Name = "comboBoxPairIndex";
             this.comboBoxPairIndex.Size = new System.Drawing.Size(129, 28);
-            this.comboBoxPairIndex.TabIndex = 0;
+            this.comboBoxPairIndex.TabIndex = 4;
             // 
             // label3
             // 
@@ -339,7 +356,7 @@ namespace ParsingXML
             this.comboBox1.Location = new System.Drawing.Point(336, 3);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(119, 28);
-            this.comboBox1.TabIndex = 2;
+            this.comboBox1.TabIndex = 3;
             // 
             // label9
             // 
@@ -357,7 +374,7 @@ namespace ParsingXML
             this.comboBox2.Location = new System.Drawing.Point(91, 3);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(88, 28);
-            this.comboBox2.TabIndex = 4;
+            this.comboBox2.TabIndex = 2;
             // 
             // label10
             // 
@@ -372,22 +389,22 @@ namespace ParsingXML
             // 
             // button1
             // 
-            button1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             button1.AutoSize = true;
-            button1.Location = new System.Drawing.Point(308, 12);
+            button1.Location = new System.Drawing.Point(6, 26);
             button1.Name = "button1";
-            button1.Size = new System.Drawing.Size(192, 30);
+            button1.Size = new System.Drawing.Size(287, 53);
             button1.TabIndex = 0;
-            button1.Text = "Трансформувати в HTML";
+            button1.TabStop = false;
+            button1.Text = "Зберегти весь розклад в HTML";
             button1.UseVisualStyleBackColor = true;
             // 
             // groupBox3
             // 
             groupBox3.Controls.Add(this.flowLayoutPanelResults);
             groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            groupBox3.Location = new System.Drawing.Point(808, 0);
+            groupBox3.Location = new System.Drawing.Point(811, 23);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new System.Drawing.Size(303, 555);
+            groupBox3.Size = new System.Drawing.Size(310, 353);
             groupBox3.TabIndex = 1;
             groupBox3.TabStop = false;
             groupBox3.Text = "Результати пошуку";
@@ -398,24 +415,57 @@ namespace ParsingXML
             this.flowLayoutPanelResults.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanelResults.Location = new System.Drawing.Point(3, 23);
             this.flowLayoutPanelResults.Name = "flowLayoutPanelResults";
-            this.flowLayoutPanelResults.Size = new System.Drawing.Size(297, 529);
+            this.flowLayoutPanelResults.Size = new System.Drawing.Size(304, 327);
             this.flowLayoutPanelResults.TabIndex = 0;
+            // 
+            // groupBox4
+            // 
+            groupBox4.Controls.Add(button1);
+            groupBox4.Dock = System.Windows.Forms.DockStyle.Top;
+            groupBox4.Location = new System.Drawing.Point(0, 0);
+            groupBox4.Name = "groupBox4";
+            groupBox4.Size = new System.Drawing.Size(1124, 89);
+            groupBox4.TabIndex = 2;
+            groupBox4.TabStop = false;
+            groupBox4.Text = "Трансформація XML";
+            // 
+            // groupBox5
+            // 
+            groupBox5.Controls.Add(groupBox3);
+            groupBox5.Controls.Add(panel1);
+            groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
+            groupBox5.Location = new System.Drawing.Point(0, 89);
+            groupBox5.Name = "groupBox5";
+            groupBox5.Size = new System.Drawing.Size(1124, 379);
+            groupBox5.TabIndex = 3;
+            groupBox5.TabStop = false;
+            groupBox5.Text = "Аналіз XML";
+            // 
+            // panel2
+            // 
+            panel2.BackColor = System.Drawing.Color.Black;
+            panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            panel2.Location = new System.Drawing.Point(0, 89);
+            panel2.Name = "panel2";
+            panel2.Size = new System.Drawing.Size(1124, 1);
+            panel2.TabIndex = 4;
             // 
             // Window
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1111, 555);
-            this.Controls.Add(groupBox3);
-            this.Controls.Add(panel1);
+            this.ClientSize = new System.Drawing.Size(1124, 468);
+            this.Controls.Add(panel2);
+            this.Controls.Add(groupBox5);
+            this.Controls.Add(groupBox4);
+            this.MinimumSize = new System.Drawing.Size(1142, 515);
             this.Name = "Window";
-            this.Text = "Аналіз XML";
+            this.Text = "XML";
             panel1.ResumeLayout(false);
-            panel1.PerformLayout();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
+            this.groupBoxFilters.ResumeLayout(false);
+            this.groupBoxFilters.PerformLayout();
             flowLayoutPanel8.ResumeLayout(false);
             flowLayoutPanel8.PerformLayout();
             flowLayoutPanel4.ResumeLayout(false);
@@ -425,6 +475,9 @@ namespace ParsingXML
             flowLayoutPanel3.ResumeLayout(false);
             flowLayoutPanel3.PerformLayout();
             groupBox3.ResumeLayout(false);
+            groupBox4.ResumeLayout(false);
+            groupBox4.PerformLayout();
+            groupBox5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -442,6 +495,8 @@ namespace ParsingXML
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.ComboBox comboBoxSubgroup;
         private System.Windows.Forms.ComboBox comboBoxWeek;
+        private System.Windows.Forms.Button buttonProcess;
+        private System.Windows.Forms.GroupBox groupBoxFilters;
     }
 }
 

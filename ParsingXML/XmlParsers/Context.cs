@@ -6,8 +6,6 @@ namespace ParsingXML.XmlParsers
     {
         public Parser CurrentParser { private get; set; }
 
-        public bool Initialized => CurrentParser is not null;
-
         public IEnumerable<string> GetAttributeValues(string attributeName)
             => CurrentParser.GetAttributeValues(attributeName);
 
