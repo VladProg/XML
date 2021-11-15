@@ -45,7 +45,7 @@ namespace ParsingXML
             System.Windows.Forms.Label label3;
             System.Windows.Forms.Label label9;
             System.Windows.Forms.Label label10;
-            System.Windows.Forms.Button button1;
+            System.Windows.Forms.Button buttonHtml;
             System.Windows.Forms.GroupBox groupBox3;
             System.Windows.Forms.GroupBox groupBox4;
             System.Windows.Forms.GroupBox groupBox5;
@@ -61,9 +61,9 @@ namespace ParsingXML
             this.comboBoxWeek = new System.Windows.Forms.ComboBox();
             this.comboBoxSubgroup = new System.Windows.Forms.ComboBox();
             this.comboBoxPairIndex = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.flowLayoutPanelResults = new System.Windows.Forms.FlowLayoutPanel();
+            this.comboBoxDayIndex = new System.Windows.Forms.ComboBox();
+            this.comboBoxGroupName = new System.Windows.Forms.ComboBox();
+            this.richTextBoxResults = new System.Windows.Forms.RichTextBox();
             panel1 = new System.Windows.Forms.Panel();
             groupBox2 = new System.Windows.Forms.GroupBox();
             flowLayoutPanel8 = new System.Windows.Forms.FlowLayoutPanel();
@@ -78,7 +78,7 @@ namespace ParsingXML
             label3 = new System.Windows.Forms.Label();
             label9 = new System.Windows.Forms.Label();
             label10 = new System.Windows.Forms.Label();
-            button1 = new System.Windows.Forms.Button();
+            buttonHtml = new System.Windows.Forms.Button();
             groupBox3 = new System.Windows.Forms.GroupBox();
             groupBox4 = new System.Windows.Forms.GroupBox();
             groupBox5 = new System.Windows.Forms.GroupBox();
@@ -108,12 +108,13 @@ namespace ParsingXML
             // 
             // buttonProcess
             // 
+            this.buttonProcess.BackColor = System.Drawing.Color.PaleTurquoise;
             this.buttonProcess.Location = new System.Drawing.Point(577, 23);
             this.buttonProcess.Name = "buttonProcess";
             this.buttonProcess.Size = new System.Drawing.Size(185, 53);
             this.buttonProcess.TabIndex = 1;
             this.buttonProcess.Text = "Завантажити";
-            this.buttonProcess.UseVisualStyleBackColor = true;
+            this.buttonProcess.UseVisualStyleBackColor = false;
             this.buttonProcess.Visible = false;
             this.buttonProcess.Click += new System.EventHandler(this.buttonProcess_Click);
             // 
@@ -130,7 +131,7 @@ namespace ParsingXML
             groupBox2.TabIndex = 8;
             groupBox2.TabStop = false;
             // 
-            // flowLayoutPanel1
+            // radioButtonLinqToXml
             // 
             this.radioButtonLinqToXml.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.radioButtonLinqToXml.AutoSize = true;
@@ -142,7 +143,7 @@ namespace ParsingXML
             this.radioButtonLinqToXml.UseVisualStyleBackColor = true;
             this.radioButtonLinqToXml.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
             // 
-            // buttonLinqToXml
+            // radioButtonSax
             // 
             this.radioButtonSax.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.radioButtonSax.AutoSize = true;
@@ -154,7 +155,7 @@ namespace ParsingXML
             this.radioButtonSax.UseVisualStyleBackColor = true;
             this.radioButtonSax.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
             // 
-            // labelAnalyze
+            // radioButtonDom
             // 
             this.radioButtonDom.AutoSize = true;
             this.radioButtonDom.Location = new System.Drawing.Point(6, 26);
@@ -196,11 +197,14 @@ namespace ParsingXML
             // 
             // comboBoxTeacherName
             // 
+            this.comboBoxTeacherName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBoxTeacherName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxTeacherName.FormattingEnabled = true;
             this.comboBoxTeacherName.Location = new System.Drawing.Point(90, 33);
             this.comboBoxTeacherName.Name = "comboBoxTeacherName";
             this.comboBoxTeacherName.Size = new System.Drawing.Size(651, 28);
             this.comboBoxTeacherName.TabIndex = 9;
+            this.comboBoxTeacherName.Validating += new System.ComponentModel.CancelEventHandler(this.comboBox_Validating);
             // 
             // label8
             // 
@@ -228,11 +232,14 @@ namespace ParsingXML
             // 
             // comboBoxSubject
             // 
+            this.comboBoxSubject.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBoxSubject.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxSubject.FormattingEnabled = true;
             this.comboBoxSubject.Location = new System.Drawing.Point(90, 33);
             this.comboBoxSubject.Name = "comboBoxSubject";
             this.comboBoxSubject.Size = new System.Drawing.Size(651, 28);
             this.comboBoxSubject.TabIndex = 8;
+            this.comboBoxSubject.Validating += new System.ComponentModel.CancelEventHandler(this.comboBox_Validating);
             // 
             // label4
             // 
@@ -264,11 +271,14 @@ namespace ParsingXML
             // 
             // comboBoxFormat
             // 
+            this.comboBoxFormat.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBoxFormat.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxFormat.FormattingEnabled = true;
             this.comboBoxFormat.Location = new System.Drawing.Point(612, 33);
             this.comboBoxFormat.Name = "comboBoxFormat";
             this.comboBoxFormat.Size = new System.Drawing.Size(129, 28);
             this.comboBoxFormat.TabIndex = 7;
+            this.comboBoxFormat.Validating += new System.ComponentModel.CancelEventHandler(this.comboBox_Validating);
             // 
             // label7
             // 
@@ -282,11 +292,14 @@ namespace ParsingXML
             // 
             // comboBoxWeek
             // 
+            this.comboBoxWeek.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBoxWeek.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxWeek.FormattingEnabled = true;
             this.comboBoxWeek.Location = new System.Drawing.Point(336, 33);
             this.comboBoxWeek.Name = "comboBoxWeek";
             this.comboBoxWeek.Size = new System.Drawing.Size(119, 28);
             this.comboBoxWeek.TabIndex = 6;
+            this.comboBoxWeek.Validating += new System.ComponentModel.CancelEventHandler(this.comboBox_Validating);
             // 
             // label2
             // 
@@ -300,11 +313,14 @@ namespace ParsingXML
             // 
             // comboBoxSubgroup
             // 
+            this.comboBoxSubgroup.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBoxSubgroup.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxSubgroup.FormattingEnabled = true;
             this.comboBoxSubgroup.Location = new System.Drawing.Point(91, 33);
             this.comboBoxSubgroup.Name = "comboBoxSubgroup";
             this.comboBoxSubgroup.Size = new System.Drawing.Size(88, 28);
             this.comboBoxSubgroup.TabIndex = 5;
+            this.comboBoxSubgroup.Validating += new System.ComponentModel.CancelEventHandler(this.comboBox_Validating);
             // 
             // label1
             // 
@@ -322,9 +338,9 @@ namespace ParsingXML
             flowLayoutPanel3.AutoSize = true;
             flowLayoutPanel3.Controls.Add(this.comboBoxPairIndex);
             flowLayoutPanel3.Controls.Add(label3);
-            flowLayoutPanel3.Controls.Add(this.comboBox1);
+            flowLayoutPanel3.Controls.Add(this.comboBoxDayIndex);
             flowLayoutPanel3.Controls.Add(label9);
-            flowLayoutPanel3.Controls.Add(this.comboBox2);
+            flowLayoutPanel3.Controls.Add(this.comboBoxGroupName);
             flowLayoutPanel3.Controls.Add(label10);
             flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Top;
             flowLayoutPanel3.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
@@ -335,11 +351,14 @@ namespace ParsingXML
             // 
             // comboBoxPairIndex
             // 
+            this.comboBoxPairIndex.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBoxPairIndex.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBoxPairIndex.FormattingEnabled = true;
             this.comboBoxPairIndex.Location = new System.Drawing.Point(612, 3);
             this.comboBoxPairIndex.Name = "comboBoxPairIndex";
             this.comboBoxPairIndex.Size = new System.Drawing.Size(129, 28);
             this.comboBoxPairIndex.TabIndex = 4;
+            this.comboBoxPairIndex.Validating += new System.ComponentModel.CancelEventHandler(this.comboBox_Validating);
             // 
             // label3
             // 
@@ -351,13 +370,16 @@ namespace ParsingXML
             label3.Text = "Пара";
             label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // comboBox1
+            // comboBoxDayIndex
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(336, 3);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(119, 28);
-            this.comboBox1.TabIndex = 3;
+            this.comboBoxDayIndex.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBoxDayIndex.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBoxDayIndex.FormattingEnabled = true;
+            this.comboBoxDayIndex.Location = new System.Drawing.Point(336, 3);
+            this.comboBoxDayIndex.Name = "comboBoxDayIndex";
+            this.comboBoxDayIndex.Size = new System.Drawing.Size(119, 28);
+            this.comboBoxDayIndex.TabIndex = 3;
+            this.comboBoxDayIndex.Validating += new System.ComponentModel.CancelEventHandler(this.comboBox_Validating);
             // 
             // label9
             // 
@@ -369,13 +391,16 @@ namespace ParsingXML
             label9.Text = "День";
             label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // comboBox2
+            // comboBoxGroupName
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(91, 3);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(88, 28);
-            this.comboBox2.TabIndex = 2;
+            this.comboBoxGroupName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBoxGroupName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBoxGroupName.FormattingEnabled = true;
+            this.comboBoxGroupName.Location = new System.Drawing.Point(91, 3);
+            this.comboBoxGroupName.Name = "comboBoxGroupName";
+            this.comboBoxGroupName.Size = new System.Drawing.Size(88, 28);
+            this.comboBoxGroupName.TabIndex = 2;
+            this.comboBoxGroupName.Validating += new System.ComponentModel.CancelEventHandler(this.comboBox_Validating);
             // 
             // label10
             // 
@@ -388,20 +413,22 @@ namespace ParsingXML
             label10.Text = "Група";
             label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // button1
+            // buttonHtml
             // 
-            button1.AutoSize = true;
-            button1.Location = new System.Drawing.Point(6, 26);
-            button1.Name = "button1";
-            button1.Size = new System.Drawing.Size(287, 53);
-            button1.TabIndex = 0;
-            button1.TabStop = false;
-            button1.Text = "Зберегти весь розклад в HTML";
-            button1.UseVisualStyleBackColor = true;
+            buttonHtml.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            buttonHtml.BackColor = System.Drawing.Color.PaleTurquoise;
+            buttonHtml.Location = new System.Drawing.Point(814, 26);
+            buttonHtml.Name = "buttonHtml";
+            buttonHtml.Size = new System.Drawing.Size(304, 53);
+            buttonHtml.TabIndex = 0;
+            buttonHtml.TabStop = false;
+            buttonHtml.Text = "Зберегти весь розклад в HTML";
+            buttonHtml.UseVisualStyleBackColor = false;
             // 
             // groupBox3
             // 
-            groupBox3.Controls.Add(this.flowLayoutPanelResults);
+            groupBox3.Controls.Add(this.richTextBoxResults);
             groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             groupBox3.Location = new System.Drawing.Point(811, 23);
             groupBox3.Name = "groupBox3";
@@ -410,25 +437,26 @@ namespace ParsingXML
             groupBox3.TabStop = false;
             groupBox3.Text = "Результати пошуку";
             // 
-            // flowLayoutPanelResults
+            // richTextBoxResults
             // 
-            this.flowLayoutPanelResults.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanelResults.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanelResults.Location = new System.Drawing.Point(3, 23);
-            this.flowLayoutPanelResults.Name = "flowLayoutPanelResults";
-            this.flowLayoutPanelResults.Size = new System.Drawing.Size(304, 327);
-            this.flowLayoutPanelResults.TabIndex = 0;
+            this.richTextBoxResults.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.richTextBoxResults.Location = new System.Drawing.Point(3, 23);
+            this.richTextBoxResults.Name = "richTextBoxResults";
+            this.richTextBoxResults.ReadOnly = true;
+            this.richTextBoxResults.Size = new System.Drawing.Size(304, 327);
+            this.richTextBoxResults.TabIndex = 0;
+            this.richTextBoxResults.TabStop = false;
+            this.richTextBoxResults.Text = "";
             // 
             // groupBox4
             // 
-            groupBox4.Controls.Add(button1);
+            groupBox4.Controls.Add(buttonHtml);
             groupBox4.Dock = System.Windows.Forms.DockStyle.Top;
             groupBox4.Location = new System.Drawing.Point(0, 0);
             groupBox4.Name = "groupBox4";
             groupBox4.Size = new System.Drawing.Size(1124, 89);
             groupBox4.TabIndex = 2;
             groupBox4.TabStop = false;
-            groupBox4.Text = "Трансформація XML";
             // 
             // groupBox5
             // 
@@ -453,6 +481,7 @@ namespace ParsingXML
             // 
             // Window
             // 
+            this.AcceptButton = this.buttonProcess;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1124, 468);
@@ -477,7 +506,6 @@ namespace ParsingXML
             flowLayoutPanel3.PerformLayout();
             groupBox3.ResumeLayout(false);
             groupBox4.ResumeLayout(false);
-            groupBox4.PerformLayout();
             groupBox5.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -488,9 +516,8 @@ namespace ParsingXML
         private System.Windows.Forms.ComboBox comboBoxFormat;
         private System.Windows.Forms.ComboBox comboBoxSubject;
         private System.Windows.Forms.ComboBox comboBoxPairIndex;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelResults;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboBoxDayIndex;
+        private System.Windows.Forms.ComboBox comboBoxGroupName;
         private System.Windows.Forms.ComboBox comboBoxSubgroup;
         private System.Windows.Forms.ComboBox comboBoxWeek;
         private System.Windows.Forms.Button buttonProcess;
@@ -498,6 +525,7 @@ namespace ParsingXML
         private System.Windows.Forms.RadioButton radioButtonDom;
         private System.Windows.Forms.RadioButton radioButtonSax;
         private System.Windows.Forms.RadioButton radioButtonLinqToXml;
+        private System.Windows.Forms.RichTextBox richTextBoxResults;
     }
 }
 

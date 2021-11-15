@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Xml;
 
@@ -13,8 +14,9 @@ namespace ParsingXML.XmlParsers
             using XmlTextReader xmlReader = new(FileName);
             List<string> result = new();
             while (xmlReader.Read())
-                if (xmlReader.NodeType is XmlNodeType.Attribute && xmlReader.Name == attributeName)
-                    result.Add(xmlReader.Value);
+                while (xmlReader.MoveToNextAttribute())
+                    if (xmlReader.Name == attributeName)
+                        result.Add(xmlReader.Value);
             return result.Distinct();
         }
 
@@ -26,18 +28,12 @@ namespace ParsingXML.XmlParsers
             Dictionary<string, string> attributes = new();
             List<string> teacherNames = new();
             while (xmlReader.Read())
-                switch (xmlReader.NodeType)
-                {
-                    case XmlNodeType.Attribute:
-                        if (xmlReader.Name == "teacher_name")
-                            teacherNames.Add(xmlReader.Value);
-                        else
-                            attributes[xmlReader.Name] = xmlReader.Value;
-                        break;
-                    case XmlNodeType.Element when xmlReader.Name == "lesson":
+            {
+                if(xmlReader.Name == "lesson")
+                    if(xmlReader.NodeType is XmlNodeType.Element)
                         teacherNames.Clear();
-                        break;
-                    case XmlNodeType.EndElement when xmlReader.Name == "lesson":
+                    else
+                    {
                         Lesson current = new()
                         {
                             GroupName = attributes["group_name"],
@@ -51,8 +47,13 @@ namespace ParsingXML.XmlParsers
                         };
                         if (current.Matches(groupName, dayIndex, pairIndex, subgroup, week, format, subject, teacherName))
                             yield return current;
-                        break;
-                }
+                    }
+                while (xmlReader.MoveToNextAttribute())
+                    if (xmlReader.Name == "teacher_name")
+                        teacherNames.Add(xmlReader.Value);
+                    else
+                        attributes[xmlReader.Name] = xmlReader.Value;
+            }
         }
     }
 }

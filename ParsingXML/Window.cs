@@ -38,10 +38,14 @@ namespace ParsingXML
         {
             if (!groupBoxFilters.Visible)
             {
+                foreach (var cb in new[] {comboBoxGroupName,comboBoxDayIndex,comboBoxPairIndex,
+                                          comboBoxSubgroup,comboBoxWeek,comboBoxFormat,
+                                          comboBoxSubject,comboBoxTeacherName})
+                    cb.Items.Add("");
                 foreach (var s in _xmlParserContext.GetAttributeValues("group_name"))
-                    comboBox2.Items.Add(s);
+                    comboBoxGroupName.Items.Add(s);
                 foreach (var s in _xmlParserContext.GetAttributeValues("day_index"))
-                    comboBox1.Items.Add(s);
+                    comboBoxDayIndex.Items.Add(s);
                 foreach (var s in _xmlParserContext.GetAttributeValues("pair_index"))
                     comboBoxPairIndex.Items.Add(s);
                 foreach (var s in _xmlParserContext.GetAttributeValues("subgroup"))
@@ -59,8 +63,27 @@ namespace ParsingXML
             }
             else
             {
-
+                richTextBoxResults.Text = string.Join("\n",
+                    from lesson in _xmlParserContext.FilterLessons(
+                        comboBoxGroupName.Text, comboBoxDayIndex.Text, comboBoxPairIndex.Text,
+                        comboBoxSubgroup.Text, comboBoxWeek.Text, comboBoxFormat.Text,
+                        comboBoxSubject.Text, comboBoxTeacherName.Text)
+                    select $"Група: {lesson.GroupName}\n" +
+                           $"День: {lesson.DayIndex}\n" +
+                           $"Пара: {lesson.PairIndex}\n" +
+                           $"Підгрупа: {lesson.Subgroup}\n" +
+                           $"Тиждень: {lesson.Week}\n" +
+                           $"Формат: {lesson.Format}\n" +
+                           $"Предмет: {lesson.Subject}\n" +
+                           $"Викладачі:\n{string.Join('\n', lesson.TeacherNames)}\n"
+                    );
             }
+        }
+
+        private void comboBox_Validating(object sender, CancelEventArgs e)
+        {
+            var comboBox = sender as ComboBox;
+            e.Cancel = !comboBox.Items.Contains(comboBox.Text);
         }
     }
 }
