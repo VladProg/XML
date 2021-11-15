@@ -14,16 +14,16 @@ namespace ParsingXML
     public partial class Window : Form
     {
         private readonly XmlParsers.Context _xmlParserContext = new();
-        public const string XML_FILE= @"C:\Users\268\source\repos\XML\timetable.xml";
-        public const string XSL_FILE= @"C:\Users\268\source\repos\XML\transform.xsl";
-        public const string HTML_FILE= @"C:\Users\268\source\repos\XML\timetable.html";
+        public const string XML_FILE = @"C:\Users\268\source\repos\XML\timetable.xml";
+        public const string XSL_FILE = @"C:\Users\268\source\repos\XML\transform.xsl";
+        public const string HTML_FILE = @"C:\Users\268\source\repos\XML\timetable.html";
 
         public Window()
         {
             InitializeComponent();
         }
 
-        private void Process()
+        private void radioButton_CheckedChanged(object sender, EventArgs e)
         {
             if (radioButtonDom.Checked)
                 _xmlParserContext.CurrentParser = new XmlParsers.DomParser(XML_FILE);
@@ -61,24 +61,6 @@ namespace ParsingXML
             {
 
             }
-        }
-
-        private void buttonDom_Click(object sender, EventArgs e)
-        {
-            _xmlParserContext.CurrentParser = new XmlParsers.DomParser(XML_FILE);
-            Process();
-        }
-
-        private void buttonSax_Click(object sender, EventArgs e)
-        {
-            _xmlParserContext.CurrentParser = new XmlParsers.SaxParser(XML_FILE);
-            Process();
-        }
-
-        private void buttonLinqToXml_Click(object sender, EventArgs e)
-        {
-            _xmlParserContext.CurrentParser = new XmlParsers.LinqToXmlParser(XML_FILE);
-            Process();
         }
     }
 }

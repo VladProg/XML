@@ -1,4 +1,6 @@
 ﻿
+using System;
+
 namespace ParsingXML
 {
     partial class Window
@@ -493,6 +495,9 @@ namespace ParsingXML
         private System.Windows.Forms.ComboBox comboBoxWeek;
         private System.Windows.Forms.Button buttonProcess;
         private System.Windows.Forms.GroupBox groupBoxFilters;
+        private System.Windows.Forms.RadioButton radioButtonDom;
+        private System.Windows.Forms.RadioButton radioButtonSax;
+        private System.Windows.Forms.RadioButton radioButtonLinqToXml;
     }
 }
 
