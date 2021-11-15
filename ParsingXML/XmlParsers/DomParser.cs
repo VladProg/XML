@@ -27,8 +27,8 @@ namespace ParsingXML.XmlParsers
         }
 
         public override IEnumerable<Lesson> FilterLessons(string groupName, string dayIndex, string pairIndex,
-                                                          string subject, string week, string subgroup,
-                                                          string format, string teacherName)
+                                                          string subgroup, string week, string format,
+                                                          string subject, string teacherName)
         {
             XmlDocument xmlDoc = new();
             xmlDoc.Load(FileName);
@@ -48,14 +48,14 @@ namespace ParsingXML.XmlParsers
                 xPath += $"[@pair_index='{pairIndex}']";
 
             xPath += "/lesson";
-            if (subject != "")
-                xPath += $"[@subject='{subject}']";
-            if (week != "")
-                xPath += $"[@week='{week}']";
             if (subgroup != "")
                 xPath += $"[@subgroup='{subgroup}']";
+            if (week != "")
+                xPath += $"[@week='{week}']";
             if (format != "")
                 xPath += $"[@format='{format}']";
+            if (subject != "")
+                xPath += $"[@subject='{subject}']";
 
             if(teacherName!="")
                 xPath += $"[teacher[@teacher_name='{teacherName}']]";
@@ -67,10 +67,10 @@ namespace ParsingXML.XmlParsers
                     GroupName = lesson.SelectSingleNode("ancestor::group").Attributes["group_name"].Value,
                     DayIndex = lesson.SelectSingleNode("ancestor::day").Attributes["day_index"].Value,
                     PairIndex = lesson.SelectSingleNode("ancestor::pair").Attributes["pair_index"].Value,
-                    Subject = lesson.Attributes["subject"].Value,
-                    Week = lesson.Attributes["week"].Value,
                     Subgroup = lesson.Attributes["subgroup"].Value,
+                    Week = lesson.Attributes["week"].Value,
                     Format = lesson.Attributes["format"].Value,
+                    Subject = lesson.Attributes["subject"].Value,
                     TeacherNames = new List<string>()
                 };
                 foreach (XmlNode teacher in lesson.SelectNodes("teacher"))

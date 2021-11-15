@@ -34,12 +34,12 @@ namespace ParsingXML
             System.Windows.Forms.GroupBox groupBox1;
             System.Windows.Forms.FlowLayoutPanel flowLayoutPanel8;
             System.Windows.Forms.Label label8;
-            System.Windows.Forms.FlowLayoutPanel flowLayoutPanel7;
-            System.Windows.Forms.Label label7;
-            System.Windows.Forms.Label label1;
-            System.Windows.Forms.Label label2;
             System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
             System.Windows.Forms.Label label4;
+            System.Windows.Forms.FlowLayoutPanel flowLayoutPanel7;
+            System.Windows.Forms.Label label7;
+            System.Windows.Forms.Label label2;
+            System.Windows.Forms.Label label1;
             System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
             System.Windows.Forms.Label label3;
             System.Windows.Forms.Label label9;
@@ -50,10 +50,10 @@ namespace ParsingXML
             this.radioButtonSax = new System.Windows.Forms.RadioButton();
             this.radioButtonDom = new System.Windows.Forms.RadioButton();
             this.comboBoxTeacherName = new System.Windows.Forms.ComboBox();
-            this.comboBoxFormat = new System.Windows.Forms.ComboBox();
-            this.comboBoxSubgroup = new System.Windows.Forms.ComboBox();
-            this.comboBoxWeek = new System.Windows.Forms.ComboBox();
             this.comboBoxSubject = new System.Windows.Forms.ComboBox();
+            this.comboBoxFormat = new System.Windows.Forms.ComboBox();
+            this.comboBoxWeek = new System.Windows.Forms.ComboBox();
+            this.comboBoxSubgroup = new System.Windows.Forms.ComboBox();
             this.comboBoxPairIndex = new System.Windows.Forms.ComboBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
@@ -63,12 +63,12 @@ namespace ParsingXML
             groupBox1 = new System.Windows.Forms.GroupBox();
             flowLayoutPanel8 = new System.Windows.Forms.FlowLayoutPanel();
             label8 = new System.Windows.Forms.Label();
-            flowLayoutPanel7 = new System.Windows.Forms.FlowLayoutPanel();
-            label7 = new System.Windows.Forms.Label();
-            label1 = new System.Windows.Forms.Label();
-            label2 = new System.Windows.Forms.Label();
             flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
             label4 = new System.Windows.Forms.Label();
+            flowLayoutPanel7 = new System.Windows.Forms.FlowLayoutPanel();
+            label7 = new System.Windows.Forms.Label();
+            label2 = new System.Windows.Forms.Label();
+            label1 = new System.Windows.Forms.Label();
             flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             label3 = new System.Windows.Forms.Label();
             label9 = new System.Windows.Forms.Label();
@@ -79,8 +79,8 @@ namespace ParsingXML
             groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
             flowLayoutPanel8.SuspendLayout();
-            flowLayoutPanel7.SuspendLayout();
             flowLayoutPanel4.SuspendLayout();
+            flowLayoutPanel7.SuspendLayout();
             flowLayoutPanel3.SuspendLayout();
             groupBox3.SuspendLayout();
             this.SuspendLayout();
@@ -103,9 +103,9 @@ namespace ParsingXML
             groupBox2.Controls.Add(this.radioButtonLinqToXml);
             groupBox2.Controls.Add(this.radioButtonSax);
             groupBox2.Controls.Add(this.radioButtonDom);
-            groupBox2.Location = new System.Drawing.Point(68, 391);
+            groupBox2.Location = new System.Drawing.Point(29, 330);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new System.Drawing.Size(668, 81);
+            groupBox2.Size = new System.Drawing.Size(750, 62);
             groupBox2.TabIndex = 8;
             groupBox2.TabStop = false;
             groupBox2.Text = "Спосіб аналізу";
@@ -114,10 +114,9 @@ namespace ParsingXML
             // 
             this.radioButtonLinqToXml.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.radioButtonLinqToXml.AutoSize = true;
-            this.radioButtonLinqToXml.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.radioButtonLinqToXml.Location = new System.Drawing.Point(532, 26);
+            this.radioButtonLinqToXml.Location = new System.Drawing.Point(597, 26);
             this.radioButtonLinqToXml.Name = "radioButtonLinqToXml";
-            this.radioButtonLinqToXml.Size = new System.Drawing.Size(97, 40);
+            this.radioButtonLinqToXml.Size = new System.Drawing.Size(114, 24);
             this.radioButtonLinqToXml.TabIndex = 2;
             this.radioButtonLinqToXml.TabStop = true;
             this.radioButtonLinqToXml.Text = "LINQ to XML";
@@ -128,10 +127,9 @@ namespace ParsingXML
             // 
             this.radioButtonSax.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.radioButtonSax.AutoSize = true;
-            this.radioButtonSax.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.radioButtonSax.Location = new System.Drawing.Point(277, 26);
+            this.radioButtonSax.Location = new System.Drawing.Point(347, 26);
             this.radioButtonSax.Name = "radioButtonSax";
-            this.radioButtonSax.Size = new System.Drawing.Size(40, 40);
+            this.radioButtonSax.Size = new System.Drawing.Size(57, 24);
             this.radioButtonSax.TabIndex = 1;
             this.radioButtonSax.TabStop = true;
             this.radioButtonSax.Text = "SAX";
@@ -141,10 +139,9 @@ namespace ParsingXML
             // radioButtonDom
             // 
             this.radioButtonDom.AutoSize = true;
-            this.radioButtonDom.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.radioButtonDom.Location = new System.Drawing.Point(6, 26);
             this.radioButtonDom.Name = "radioButtonDom";
-            this.radioButtonDom.Size = new System.Drawing.Size(48, 40);
+            this.radioButtonDom.Size = new System.Drawing.Size(65, 24);
             this.radioButtonDom.TabIndex = 0;
             this.radioButtonDom.TabStop = true;
             this.radioButtonDom.Text = "DOM";
@@ -156,12 +153,12 @@ namespace ParsingXML
             groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             groupBox1.Controls.Add(flowLayoutPanel8);
-            groupBox1.Controls.Add(flowLayoutPanel7);
             groupBox1.Controls.Add(flowLayoutPanel4);
+            groupBox1.Controls.Add(flowLayoutPanel7);
             groupBox1.Controls.Add(flowLayoutPanel3);
             groupBox1.Location = new System.Drawing.Point(29, 48);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new System.Drawing.Size(750, 312);
+            groupBox1.Size = new System.Drawing.Size(750, 257);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "Фільтри";
@@ -198,82 +195,6 @@ namespace ParsingXML
             label8.Text = "Викладач";
             label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // flowLayoutPanel7
-            // 
-            flowLayoutPanel7.AutoSize = true;
-            flowLayoutPanel7.Controls.Add(this.comboBoxFormat);
-            flowLayoutPanel7.Controls.Add(label7);
-            flowLayoutPanel7.Controls.Add(this.comboBoxSubgroup);
-            flowLayoutPanel7.Controls.Add(label1);
-            flowLayoutPanel7.Controls.Add(this.comboBoxWeek);
-            flowLayoutPanel7.Controls.Add(label2);
-            flowLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Top;
-            flowLayoutPanel7.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            flowLayoutPanel7.Location = new System.Drawing.Point(3, 121);
-            flowLayoutPanel7.Name = "flowLayoutPanel7";
-            flowLayoutPanel7.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
-            flowLayoutPanel7.Size = new System.Drawing.Size(744, 64);
-            flowLayoutPanel7.TabIndex = 6;
-            // 
-            // comboBoxFormat
-            // 
-            this.comboBoxFormat.FormattingEnabled = true;
-            this.comboBoxFormat.Location = new System.Drawing.Point(612, 33);
-            this.comboBoxFormat.Name = "comboBoxFormat";
-            this.comboBoxFormat.Size = new System.Drawing.Size(129, 28);
-            this.comboBoxFormat.TabIndex = 0;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new System.Drawing.Point(543, 30);
-            label7.Margin = new System.Windows.Forms.Padding(107, 0, 3, 0);
-            label7.MinimumSize = new System.Drawing.Size(0, 28);
-            label7.Name = "label7";
-            label7.Size = new System.Drawing.Size(63, 28);
-            label7.TabIndex = 1;
-            label7.Text = "Формат";
-            label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // comboBoxSubgroup
-            // 
-            this.comboBoxSubgroup.FormattingEnabled = true;
-            this.comboBoxSubgroup.Location = new System.Drawing.Point(381, 33);
-            this.comboBoxSubgroup.Name = "comboBoxSubgroup";
-            this.comboBoxSubgroup.Size = new System.Drawing.Size(52, 28);
-            this.comboBoxSubgroup.TabIndex = 2;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(304, 30);
-            label1.Margin = new System.Windows.Forms.Padding(107, 0, 3, 0);
-            label1.MinimumSize = new System.Drawing.Size(0, 28);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(71, 28);
-            label1.TabIndex = 3;
-            label1.Text = "Підгрупа";
-            label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // comboBoxWeek
-            // 
-            this.comboBoxWeek.FormattingEnabled = true;
-            this.comboBoxWeek.Location = new System.Drawing.Point(91, 33);
-            this.comboBoxWeek.Name = "comboBoxWeek";
-            this.comboBoxWeek.Size = new System.Drawing.Size(103, 28);
-            this.comboBoxWeek.TabIndex = 4;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(15, 30);
-            label2.MinimumSize = new System.Drawing.Size(0, 28);
-            label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(70, 28);
-            label2.TabIndex = 5;
-            label2.Text = "Тиждень";
-            label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // flowLayoutPanel4
             // 
             flowLayoutPanel4.AutoSize = true;
@@ -281,7 +202,7 @@ namespace ParsingXML
             flowLayoutPanel4.Controls.Add(label4);
             flowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Top;
             flowLayoutPanel4.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            flowLayoutPanel4.Location = new System.Drawing.Point(3, 57);
+            flowLayoutPanel4.Location = new System.Drawing.Point(3, 121);
             flowLayoutPanel4.Name = "flowLayoutPanel4";
             flowLayoutPanel4.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
             flowLayoutPanel4.Size = new System.Drawing.Size(744, 64);
@@ -306,6 +227,78 @@ namespace ParsingXML
             label4.Text = "Предмет";
             label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // flowLayoutPanel7
+            // 
+            flowLayoutPanel7.AutoSize = true;
+            flowLayoutPanel7.Controls.Add(this.comboBoxFormat);
+            flowLayoutPanel7.Controls.Add(label7);
+            flowLayoutPanel7.Controls.Add(this.comboBoxWeek);
+            flowLayoutPanel7.Controls.Add(label2);
+            flowLayoutPanel7.Controls.Add(this.comboBoxSubgroup);
+            flowLayoutPanel7.Controls.Add(label1);
+            flowLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Top;
+            flowLayoutPanel7.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            flowLayoutPanel7.Location = new System.Drawing.Point(3, 57);
+            flowLayoutPanel7.Name = "flowLayoutPanel7";
+            flowLayoutPanel7.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
+            flowLayoutPanel7.Size = new System.Drawing.Size(744, 64);
+            flowLayoutPanel7.TabIndex = 6;
+            // 
+            // comboBoxFormat
+            // 
+            this.comboBoxFormat.FormattingEnabled = true;
+            this.comboBoxFormat.Location = new System.Drawing.Point(612, 33);
+            this.comboBoxFormat.Name = "comboBoxFormat";
+            this.comboBoxFormat.Size = new System.Drawing.Size(129, 28);
+            this.comboBoxFormat.TabIndex = 0;
+            // 
+            // label7
+            // 
+            label7.Location = new System.Drawing.Point(461, 30);
+            label7.MinimumSize = new System.Drawing.Size(20, 28);
+            label7.Name = "label7";
+            label7.Size = new System.Drawing.Size(145, 28);
+            label7.TabIndex = 1;
+            label7.Text = "Формат";
+            label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // comboBoxWeek
+            // 
+            this.comboBoxWeek.FormattingEnabled = true;
+            this.comboBoxWeek.Location = new System.Drawing.Point(336, 33);
+            this.comboBoxWeek.Name = "comboBoxWeek";
+            this.comboBoxWeek.Size = new System.Drawing.Size(119, 28);
+            this.comboBoxWeek.TabIndex = 4;
+            // 
+            // label2
+            // 
+            label2.Location = new System.Drawing.Point(185, 30);
+            label2.MinimumSize = new System.Drawing.Size(20, 28);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(145, 28);
+            label2.TabIndex = 5;
+            label2.Text = "Тиждень";
+            label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // comboBoxSubgroup
+            // 
+            this.comboBoxSubgroup.FormattingEnabled = true;
+            this.comboBoxSubgroup.Location = new System.Drawing.Point(91, 33);
+            this.comboBoxSubgroup.Name = "comboBoxSubgroup";
+            this.comboBoxSubgroup.Size = new System.Drawing.Size(88, 28);
+            this.comboBoxSubgroup.TabIndex = 2;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(14, 30);
+            label1.MinimumSize = new System.Drawing.Size(0, 28);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(71, 28);
+            label1.TabIndex = 3;
+            label1.Text = "Підгрупа";
+            label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // flowLayoutPanel3
             // 
             flowLayoutPanel3.AutoSize = true;
@@ -325,42 +318,38 @@ namespace ParsingXML
             // comboBoxPairIndex
             // 
             this.comboBoxPairIndex.FormattingEnabled = true;
-            this.comboBoxPairIndex.Location = new System.Drawing.Point(689, 3);
+            this.comboBoxPairIndex.Location = new System.Drawing.Point(612, 3);
             this.comboBoxPairIndex.Name = "comboBoxPairIndex";
-            this.comboBoxPairIndex.Size = new System.Drawing.Size(52, 28);
+            this.comboBoxPairIndex.Size = new System.Drawing.Size(129, 28);
             this.comboBoxPairIndex.TabIndex = 0;
             // 
             // label3
             // 
-            label3.AutoSize = true;
-            label3.Location = new System.Drawing.Point(638, 0);
-            label3.Margin = new System.Windows.Forms.Padding(142, 0, 3, 0);
-            label3.MinimumSize = new System.Drawing.Size(0, 28);
+            label3.Location = new System.Drawing.Point(461, 0);
+            label3.MinimumSize = new System.Drawing.Size(145, 28);
             label3.Name = "label3";
-            label3.Size = new System.Drawing.Size(45, 28);
+            label3.Size = new System.Drawing.Size(145, 28);
             label3.TabIndex = 1;
             label3.Text = "Пара";
-            label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(374, 3);
+            this.comboBox1.Location = new System.Drawing.Point(336, 3);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(119, 28);
             this.comboBox1.TabIndex = 2;
             // 
             // label9
             // 
-            label9.AutoSize = true;
-            label9.Location = new System.Drawing.Point(324, 0);
-            label9.Margin = new System.Windows.Forms.Padding(142, 0, 3, 0);
-            label9.MinimumSize = new System.Drawing.Size(0, 28);
+            label9.Location = new System.Drawing.Point(185, 0);
+            label9.MinimumSize = new System.Drawing.Size(145, 28);
             label9.Name = "label9";
-            label9.Size = new System.Drawing.Size(44, 28);
+            label9.Size = new System.Drawing.Size(145, 28);
             label9.TabIndex = 3;
             label9.Text = "День";
-            label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // comboBox2
             // 
@@ -429,10 +418,10 @@ namespace ParsingXML
             groupBox1.PerformLayout();
             flowLayoutPanel8.ResumeLayout(false);
             flowLayoutPanel8.PerformLayout();
-            flowLayoutPanel7.ResumeLayout(false);
-            flowLayoutPanel7.PerformLayout();
             flowLayoutPanel4.ResumeLayout(false);
             flowLayoutPanel4.PerformLayout();
+            flowLayoutPanel7.ResumeLayout(false);
+            flowLayoutPanel7.PerformLayout();
             flowLayoutPanel3.ResumeLayout(false);
             flowLayoutPanel3.PerformLayout();
             groupBox3.ResumeLayout(false);

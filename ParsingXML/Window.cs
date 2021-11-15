@@ -40,14 +40,14 @@ namespace ParsingXML
                     comboBox1.Items.Add(s);
                 foreach (var s in _xmlParserContext.GetAttributeValues("pair_index"))
                     comboBoxPairIndex.Items.Add(s);
-                foreach (var s in _xmlParserContext.GetAttributeValues("subject").OrderBy(x => x))
-                    comboBoxSubject.Items.Add(s);
-                foreach (var s in _xmlParserContext.GetAttributeValues("week"))
-                    comboBoxWeek.Items.Add(s);
                 foreach (var s in _xmlParserContext.GetAttributeValues("subgroup"))
                     comboBoxSubgroup.Items.Add(s);
+                foreach (var s in _xmlParserContext.GetAttributeValues("week"))
+                    comboBoxWeek.Items.Add(s);
                 foreach (var s in _xmlParserContext.GetAttributeValues("format"))
                     comboBoxFormat.Items.Add(s);
+                foreach (var s in _xmlParserContext.GetAttributeValues("subject").OrderBy(x => x))
+                    comboBoxSubject.Items.Add(s);
                 foreach (var s in _xmlParserContext.GetAttributeValues("teacher_name").OrderBy(x => x))
                     comboBoxTeacherName.Items.Add(s);
             }

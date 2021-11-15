@@ -19,8 +19,8 @@ namespace ParsingXML.XmlParsers
         }
 
         public override IEnumerable<Lesson> FilterLessons(string groupName, string dayIndex, string pairIndex,
-                                                          string subject, string week, string subgroup,
-                                                          string format, string teacherName)
+                                                          string subgroup, string week, string format,
+                                                          string subject, string teacherName)
         {
             using XmlTextReader xmlReader = new(FileName);
             Dictionary<string, string> attributes = new();
@@ -38,18 +38,18 @@ namespace ParsingXML.XmlParsers
                         teacherNames.Clear();
                         break;
                     case XmlNodeType.EndElement when xmlReader.Name == "lesson":
-                        Lesson current= new()
+                        Lesson current = new()
                         {
                             GroupName = attributes["group_name"],
                             DayIndex = attributes["day_index"],
                             PairIndex = attributes["pair_index"],
-                            Subject = attributes["subject"],
-                            Week = attributes["week"],
                             Subgroup = attributes["subgroup"],
+                            Week = attributes["week"],
                             Format = attributes["format"],
+                            Subject = attributes["subject"],
                             TeacherNames = teacherNames
                         };
-                        if (current.Matches(groupName, dayIndex, pairIndex, subject, week, subgroup, format, teacherName))
+                        if (current.Matches(groupName, dayIndex, pairIndex, subgroup, week, format, subject, teacherName))
                             yield return current;
                         break;
                 }

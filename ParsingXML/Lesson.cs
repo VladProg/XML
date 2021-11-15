@@ -5,19 +5,19 @@ namespace ParsingXML
 {
     struct Lesson
     {
-        public string GroupName, DayIndex, PairIndex, Subject, Week, Subgroup, Format;
+        public string GroupName, DayIndex, PairIndex, Subgroup, Week, Format, Subject;
         public IEnumerable<string> TeacherNames;
 
         public bool Matches(string groupName, string dayIndex, string pairIndex,
-                            string subject, string week, string subgroup,
-                            string format, string teacherName)
+                            string subgroup, string week, string format,
+                            string subject, string teacherName)
             => (groupName == "" || groupName == GroupName)
             && (dayIndex == "" || dayIndex == DayIndex)
             && (pairIndex == "" || pairIndex == PairIndex)
-            && (subject == "" || subject == Subject)
-            && (week == "" || week == Week)
             && (subgroup == "" || subgroup == Subgroup)
+            && (week == "" || week == Week)
             && (format == "" || format == Format)
+            && (subject == "" || subject == Subject)
             && (teacherName == "" || TeacherNames.Contains(teacherName));
     }
 }

@@ -9,7 +9,7 @@ namespace ParsingXML.XmlParsers
             => FileName = fileName;
         public abstract IEnumerable<string> GetAttributeValues(string attributeName);
         public abstract IEnumerable<Lesson> FilterLessons(string groupName, string dayIndex, string pairIndex,
-                                                          string subject, string week, string subgroup,
-                                                          string format, string teacherName);
+                                                          string subgroup, string week, string format,
+                                                          string subject, string teacherName);
     }
 }
