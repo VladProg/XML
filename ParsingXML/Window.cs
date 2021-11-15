@@ -13,6 +13,7 @@ namespace ParsingXML
 {
     public partial class Window : Form
     {
+        private bool _initialized = false;
         private XmlParsers.Context _xmlParserContext = new();
         public const string XML_FILE= @"C:\Users\268\source\repos\XML\timetable.xml";
         public const string XSL_FILE= @"C:\Users\268\source\repos\XML\transform.xsl";
@@ -23,16 +24,9 @@ namespace ParsingXML
             InitializeComponent();
         }
 
-        private void radioButton_CheckedChanged(object sender, EventArgs e)
+        private void Process()
         {
-            bool initialized = _xmlParserContext.Initialized;
-            if (radioButtonDom.Checked)
-                _xmlParserContext.CurrentParser = new XmlParsers.DomParser(XML_FILE);
-            else if (radioButtonSax.Checked)
-                _xmlParserContext.CurrentParser = new XmlParsers.SaxParser(XML_FILE);
-            else if (radioButtonLinqToXml.Checked)
-                _xmlParserContext.CurrentParser = new XmlParsers.LinqToXmlParser(XML_FILE);
-            if (!initialized)
+            if (!_initialized)
             {
                 foreach (var s in _xmlParserContext.GetAttributeValues("group_name"))
                     comboBox2.Items.Add(s);
@@ -50,7 +44,32 @@ namespace ParsingXML
                     comboBoxSubject.Items.Add(s);
                 foreach (var s in _xmlParserContext.GetAttributeValues("teacher_name").OrderBy(x => x))
                     comboBoxTeacherName.Items.Add(s);
+                _initialized = true;
+                labelAnalyze.Text = "Шукати за допомогою:";
+                groupBoxFilters.Visible = true;
             }
+            else
+            {
+
+            }
+        }
+
+        private void buttonDom_Click(object sender, EventArgs e)
+        {
+            _xmlParserContext.CurrentParser = new XmlParsers.DomParser(XML_FILE);
+            Process();
+        }
+
+        private void buttonSax_Click(object sender, EventArgs e)
+        {
+            _xmlParserContext.CurrentParser = new XmlParsers.SaxParser(XML_FILE);
+            Process();
+        }
+
+        private void buttonLinqToXml_Click(object sender, EventArgs e)
+        {
+            _xmlParserContext.CurrentParser = new XmlParsers.LinqToXmlParser(XML_FILE);
+            Process();
         }
     }
 }

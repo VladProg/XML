@@ -31,7 +31,6 @@ namespace ParsingXML
         {
             System.Windows.Forms.Panel panel1;
             System.Windows.Forms.GroupBox groupBox2;
-            System.Windows.Forms.GroupBox groupBox1;
             System.Windows.Forms.FlowLayoutPanel flowLayoutPanel8;
             System.Windows.Forms.Label label8;
             System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
@@ -46,9 +45,12 @@ namespace ParsingXML
             System.Windows.Forms.Label label10;
             System.Windows.Forms.Button button1;
             System.Windows.Forms.GroupBox groupBox3;
-            this.radioButtonLinqToXml = new System.Windows.Forms.RadioButton();
-            this.radioButtonSax = new System.Windows.Forms.RadioButton();
-            this.radioButtonDom = new System.Windows.Forms.RadioButton();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.buttonLinqToXml = new System.Windows.Forms.Button();
+            this.buttonSax = new System.Windows.Forms.Button();
+            this.buttonDom = new System.Windows.Forms.Button();
+            this.labelAnalyze = new System.Windows.Forms.Label();
+            this.groupBoxFilters = new System.Windows.Forms.GroupBox();
             this.comboBoxTeacherName = new System.Windows.Forms.ComboBox();
             this.comboBoxSubject = new System.Windows.Forms.ComboBox();
             this.comboBoxFormat = new System.Windows.Forms.ComboBox();
@@ -60,7 +62,6 @@ namespace ParsingXML
             this.flowLayoutPanelResults = new System.Windows.Forms.FlowLayoutPanel();
             panel1 = new System.Windows.Forms.Panel();
             groupBox2 = new System.Windows.Forms.GroupBox();
-            groupBox1 = new System.Windows.Forms.GroupBox();
             flowLayoutPanel8 = new System.Windows.Forms.FlowLayoutPanel();
             label8 = new System.Windows.Forms.Label();
             flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
@@ -77,7 +78,8 @@ namespace ParsingXML
             groupBox3 = new System.Windows.Forms.GroupBox();
             panel1.SuspendLayout();
             groupBox2.SuspendLayout();
-            groupBox1.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
+            this.groupBoxFilters.SuspendLayout();
             flowLayoutPanel8.SuspendLayout();
             flowLayoutPanel4.SuspendLayout();
             flowLayoutPanel7.SuspendLayout();
@@ -88,7 +90,7 @@ namespace ParsingXML
             // panel1
             // 
             panel1.Controls.Add(groupBox2);
-            panel1.Controls.Add(groupBox1);
+            panel1.Controls.Add(this.groupBoxFilters);
             panel1.Controls.Add(button1);
             panel1.Dock = System.Windows.Forms.DockStyle.Left;
             panel1.Location = new System.Drawing.Point(0, 0);
@@ -100,68 +102,84 @@ namespace ParsingXML
             // 
             groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            groupBox2.Controls.Add(this.radioButtonLinqToXml);
-            groupBox2.Controls.Add(this.radioButtonSax);
-            groupBox2.Controls.Add(this.radioButtonDom);
+            groupBox2.Controls.Add(this.flowLayoutPanel1);
             groupBox2.Location = new System.Drawing.Point(29, 330);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new System.Drawing.Size(750, 62);
             groupBox2.TabIndex = 8;
             groupBox2.TabStop = false;
-            groupBox2.Text = "Спосіб аналізу";
             // 
-            // radioButtonLinqToXml
+            // flowLayoutPanel1
             // 
-            this.radioButtonLinqToXml.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.radioButtonLinqToXml.AutoSize = true;
-            this.radioButtonLinqToXml.Location = new System.Drawing.Point(597, 26);
-            this.radioButtonLinqToXml.Name = "radioButtonLinqToXml";
-            this.radioButtonLinqToXml.Size = new System.Drawing.Size(114, 24);
-            this.radioButtonLinqToXml.TabIndex = 2;
-            this.radioButtonLinqToXml.TabStop = true;
-            this.radioButtonLinqToXml.Text = "LINQ to XML";
-            this.radioButtonLinqToXml.UseVisualStyleBackColor = true;
-            this.radioButtonLinqToXml.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
+            this.flowLayoutPanel1.Controls.Add(this.buttonLinqToXml);
+            this.flowLayoutPanel1.Controls.Add(this.buttonSax);
+            this.flowLayoutPanel1.Controls.Add(this.buttonDom);
+            this.flowLayoutPanel1.Controls.Add(this.labelAnalyze);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 23);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(744, 36);
+            this.flowLayoutPanel1.TabIndex = 0;
             // 
-            // radioButtonSax
+            // buttonLinqToXml
             // 
-            this.radioButtonSax.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.radioButtonSax.AutoSize = true;
-            this.radioButtonSax.Location = new System.Drawing.Point(347, 26);
-            this.radioButtonSax.Name = "radioButtonSax";
-            this.radioButtonSax.Size = new System.Drawing.Size(57, 24);
-            this.radioButtonSax.TabIndex = 1;
-            this.radioButtonSax.TabStop = true;
-            this.radioButtonSax.Text = "SAX";
-            this.radioButtonSax.UseVisualStyleBackColor = true;
-            this.radioButtonSax.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
+            this.buttonLinqToXml.Location = new System.Drawing.Point(612, 3);
+            this.buttonLinqToXml.Margin = new System.Windows.Forms.Padding(40, 3, 3, 3);
+            this.buttonLinqToXml.Name = "buttonLinqToXml";
+            this.buttonLinqToXml.Size = new System.Drawing.Size(129, 29);
+            this.buttonLinqToXml.TabIndex = 3;
+            this.buttonLinqToXml.Text = "LINQ to XML";
+            this.buttonLinqToXml.UseVisualStyleBackColor = true;
+            this.buttonLinqToXml.Click += new System.EventHandler(this.buttonLinqToXml_Click);
             // 
-            // radioButtonDom
+            // buttonSax
             // 
-            this.radioButtonDom.AutoSize = true;
-            this.radioButtonDom.Location = new System.Drawing.Point(6, 26);
-            this.radioButtonDom.Name = "radioButtonDom";
-            this.radioButtonDom.Size = new System.Drawing.Size(65, 24);
-            this.radioButtonDom.TabIndex = 0;
-            this.radioButtonDom.TabStop = true;
-            this.radioButtonDom.Text = "DOM";
-            this.radioButtonDom.UseVisualStyleBackColor = true;
-            this.radioButtonDom.CheckedChanged += new System.EventHandler(this.radioButton_CheckedChanged);
+            this.buttonSax.Location = new System.Drawing.Point(440, 3);
+            this.buttonSax.Margin = new System.Windows.Forms.Padding(40, 3, 3, 3);
+            this.buttonSax.Name = "buttonSax";
+            this.buttonSax.Size = new System.Drawing.Size(129, 29);
+            this.buttonSax.TabIndex = 2;
+            this.buttonSax.Text = "SAX";
+            this.buttonSax.UseVisualStyleBackColor = true;
+            this.buttonSax.Click += new System.EventHandler(this.buttonSax_Click);
             // 
-            // groupBox1
+            // buttonDom
             // 
-            groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.buttonDom.Location = new System.Drawing.Point(268, 3);
+            this.buttonDom.Margin = new System.Windows.Forms.Padding(40, 3, 3, 3);
+            this.buttonDom.Name = "buttonDom";
+            this.buttonDom.Size = new System.Drawing.Size(129, 29);
+            this.buttonDom.TabIndex = 1;
+            this.buttonDom.Text = "DOM";
+            this.buttonDom.UseVisualStyleBackColor = true;
+            this.buttonDom.Click += new System.EventHandler(this.buttonDom_Click);
+            // 
+            // labelAnalyze
+            // 
+            this.labelAnalyze.Location = new System.Drawing.Point(12, 0);
+            this.labelAnalyze.MinimumSize = new System.Drawing.Size(0, 29);
+            this.labelAnalyze.Name = "labelAnalyze";
+            this.labelAnalyze.Size = new System.Drawing.Size(213, 29);
+            this.labelAnalyze.TabIndex = 0;
+            this.labelAnalyze.Text = "Завантажити за допомогою:";
+            this.labelAnalyze.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // groupBoxFilters
+            // 
+            this.groupBoxFilters.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            groupBox1.Controls.Add(flowLayoutPanel8);
-            groupBox1.Controls.Add(flowLayoutPanel4);
-            groupBox1.Controls.Add(flowLayoutPanel7);
-            groupBox1.Controls.Add(flowLayoutPanel3);
-            groupBox1.Location = new System.Drawing.Point(29, 48);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new System.Drawing.Size(750, 257);
-            groupBox1.TabIndex = 1;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "Фільтри";
+            this.groupBoxFilters.Controls.Add(flowLayoutPanel8);
+            this.groupBoxFilters.Controls.Add(flowLayoutPanel4);
+            this.groupBoxFilters.Controls.Add(flowLayoutPanel7);
+            this.groupBoxFilters.Controls.Add(flowLayoutPanel3);
+            this.groupBoxFilters.Location = new System.Drawing.Point(29, 48);
+            this.groupBoxFilters.Name = "groupBoxFilters";
+            this.groupBoxFilters.Size = new System.Drawing.Size(750, 257);
+            this.groupBoxFilters.TabIndex = 1;
+            this.groupBoxFilters.TabStop = false;
+            this.groupBoxFilters.Text = "Фільтри";
+            this.groupBoxFilters.Visible = false;
             // 
             // flowLayoutPanel8
             // 
@@ -413,9 +431,9 @@ namespace ParsingXML
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             groupBox2.ResumeLayout(false);
-            groupBox2.PerformLayout();
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.groupBoxFilters.ResumeLayout(false);
+            this.groupBoxFilters.PerformLayout();
             flowLayoutPanel8.ResumeLayout(false);
             flowLayoutPanel8.PerformLayout();
             flowLayoutPanel4.ResumeLayout(false);
@@ -434,14 +452,17 @@ namespace ParsingXML
         private System.Windows.Forms.ComboBox comboBoxFormat;
         private System.Windows.Forms.ComboBox comboBoxSubject;
         private System.Windows.Forms.ComboBox comboBoxPairIndex;
-        private System.Windows.Forms.RadioButton radioButtonDom;
-        private System.Windows.Forms.RadioButton radioButtonLinqToXml;
-        private System.Windows.Forms.RadioButton radioButtonSax;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelResults;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.ComboBox comboBoxSubgroup;
         private System.Windows.Forms.ComboBox comboBoxWeek;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Label labelAnalyze;
+        private System.Windows.Forms.Button buttonDom;
+        private System.Windows.Forms.Button buttonSax;
+        private System.Windows.Forms.Button buttonLinqToXml;
+        private System.Windows.Forms.GroupBox groupBoxFilters;
     }
 }
 
