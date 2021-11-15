@@ -35,9 +35,9 @@ namespace ParsingXML
             if (!initialized)
             {
                 foreach (var s in _xmlParserContext.GetAttributeValues("group_name"))
-                    comboBoxGroupName.Items.Add(s);
+                    comboBox2.Items.Add(s);
                 foreach (var s in _xmlParserContext.GetAttributeValues("day_index"))
-                    comboBoxDayIndex.Items.Add(s);
+                    comboBox1.Items.Add(s);
                 foreach (var s in _xmlParserContext.GetAttributeValues("pair_index"))
                     comboBoxPairIndex.Items.Add(s);
                 foreach (var s in _xmlParserContext.GetAttributeValues("subject").OrderBy(x => x))
