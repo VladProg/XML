@@ -6,7 +6,7 @@ namespace ParsingXML
     {
         public static void Transform(string input, string xsl, string result)
         {
-            XslCompiledTransform xslt = new XslCompiledTransform();
+            XslCompiledTransform xslt = new();
             xslt.Load(xsl);
             xslt.Transform(input, result);
         }

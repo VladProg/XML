@@ -46,9 +46,9 @@ namespace ParsingXML
             System.Windows.Forms.Label label9;
             System.Windows.Forms.Label label10;
             System.Windows.Forms.Button buttonHtml;
-            System.Windows.Forms.GroupBox groupBox3;
             System.Windows.Forms.GroupBox groupBox4;
             System.Windows.Forms.GroupBox groupBox5;
+            System.Windows.Forms.GroupBox groupBoxResults;
             System.Windows.Forms.Panel panel2;
             this.buttonProcess = new System.Windows.Forms.Button();
             this.radioButtonLinqToXml = new System.Windows.Forms.RadioButton();
@@ -63,7 +63,7 @@ namespace ParsingXML
             this.comboBoxPairIndex = new System.Windows.Forms.ComboBox();
             this.comboBoxDayIndex = new System.Windows.Forms.ComboBox();
             this.comboBoxGroupName = new System.Windows.Forms.ComboBox();
-            this.richTextBoxResults = new System.Windows.Forms.RichTextBox();
+            this.panelResults = new System.Windows.Forms.Panel();
             panel1 = new System.Windows.Forms.Panel();
             groupBox2 = new System.Windows.Forms.GroupBox();
             flowLayoutPanel8 = new System.Windows.Forms.FlowLayoutPanel();
@@ -79,9 +79,9 @@ namespace ParsingXML
             label9 = new System.Windows.Forms.Label();
             label10 = new System.Windows.Forms.Label();
             buttonHtml = new System.Windows.Forms.Button();
-            groupBox3 = new System.Windows.Forms.GroupBox();
             groupBox4 = new System.Windows.Forms.GroupBox();
             groupBox5 = new System.Windows.Forms.GroupBox();
+            groupBoxResults = new System.Windows.Forms.GroupBox();
             panel2 = new System.Windows.Forms.Panel();
             panel1.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -90,9 +90,9 @@ namespace ParsingXML
             flowLayoutPanel4.SuspendLayout();
             flowLayoutPanel7.SuspendLayout();
             flowLayoutPanel3.SuspendLayout();
-            groupBox3.SuspendLayout();
             groupBox4.SuspendLayout();
             groupBox5.SuspendLayout();
+            groupBoxResults.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -435,28 +435,6 @@ namespace ParsingXML
             buttonHtml.UseVisualStyleBackColor = false;
             buttonHtml.Click += new System.EventHandler(this.buttonHtml_Click);
             // 
-            // groupBox3
-            // 
-            groupBox3.Controls.Add(this.richTextBoxResults);
-            groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            groupBox3.Location = new System.Drawing.Point(811, 23);
-            groupBox3.Name = "groupBox3";
-            groupBox3.Size = new System.Drawing.Size(310, 353);
-            groupBox3.TabIndex = 1;
-            groupBox3.TabStop = false;
-            groupBox3.Text = "Результати пошуку";
-            // 
-            // richTextBoxResults
-            // 
-            this.richTextBoxResults.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richTextBoxResults.Location = new System.Drawing.Point(3, 23);
-            this.richTextBoxResults.Name = "richTextBoxResults";
-            this.richTextBoxResults.ReadOnly = true;
-            this.richTextBoxResults.Size = new System.Drawing.Size(304, 327);
-            this.richTextBoxResults.TabIndex = 0;
-            this.richTextBoxResults.TabStop = false;
-            this.richTextBoxResults.Text = "";
-            // 
             // groupBox4
             // 
             groupBox4.Controls.Add(buttonHtml);
@@ -469,7 +447,7 @@ namespace ParsingXML
             // 
             // groupBox5
             // 
-            groupBox5.Controls.Add(groupBox3);
+            groupBox5.Controls.Add(groupBoxResults);
             groupBox5.Controls.Add(panel1);
             groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
             groupBox5.Location = new System.Drawing.Point(0, 89);
@@ -477,6 +455,17 @@ namespace ParsingXML
             groupBox5.Size = new System.Drawing.Size(1124, 379);
             groupBox5.TabIndex = 3;
             groupBox5.TabStop = false;
+            // 
+            // groupBoxResults
+            // 
+            groupBoxResults.Controls.Add(this.panelResults);
+            groupBoxResults.Dock = System.Windows.Forms.DockStyle.Fill;
+            groupBoxResults.Location = new System.Drawing.Point(811, 23);
+            groupBoxResults.Name = "groupBoxResults";
+            groupBoxResults.Size = new System.Drawing.Size(310, 353);
+            groupBoxResults.TabIndex = 1;
+            groupBoxResults.TabStop = false;
+            groupBoxResults.Text = "Результати пошуку";
             // 
             // panel2
             // 
@@ -486,6 +475,15 @@ namespace ParsingXML
             panel2.Name = "panel2";
             panel2.Size = new System.Drawing.Size(1124, 1);
             panel2.TabIndex = 4;
+            // 
+            // panelResults
+            // 
+            this.panelResults.AutoScroll = true;
+            this.panelResults.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelResults.Location = new System.Drawing.Point(3, 23);
+            this.panelResults.Name = "panelResults";
+            this.panelResults.Size = new System.Drawing.Size(304, 327);
+            this.panelResults.TabIndex = 0;
             // 
             // Window
             // 
@@ -512,9 +510,9 @@ namespace ParsingXML
             flowLayoutPanel7.PerformLayout();
             flowLayoutPanel3.ResumeLayout(false);
             flowLayoutPanel3.PerformLayout();
-            groupBox3.ResumeLayout(false);
             groupBox4.ResumeLayout(false);
             groupBox5.ResumeLayout(false);
+            groupBoxResults.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -533,7 +531,7 @@ namespace ParsingXML
         private System.Windows.Forms.RadioButton radioButtonDom;
         private System.Windows.Forms.RadioButton radioButtonSax;
         private System.Windows.Forms.RadioButton radioButtonLinqToXml;
-        private System.Windows.Forms.RichTextBox richTextBoxResults;
+        private System.Windows.Forms.Panel panelResults;
     }
 }
 
