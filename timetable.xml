@@ -100,8 +100,6 @@
                 </lesson>
             </pair>
         </day>
-        <day day_index="П'ятниця">
-        </day>
     </group>
     <group group_name="ІПС-31">
         <day day_index="Понеділок">
@@ -679,10 +677,6 @@
                     <teacher teacher_name="Колянова Тетяна Володимирівна"/>
                 </lesson>
             </pair>
-        </day>
-        <day day_index="Четвер">
-        </day>
-        <day day_index="П'ятниця">
         </day>
     </group>
     <group group_name="ДО-3">
@@ -3835,8 +3829,6 @@
                 </lesson>
             </pair>
         </day>
-        <day day_index="Вівторок">
-        </day>
         <day day_index="Середа">
             <pair pair_index="1">
                 <lesson subgroup="1" week="Обидва" format="Лабораторна" subject="Інформаційні технології">
@@ -4030,8 +4022,6 @@
                     <teacher teacher_name="Стоян Володимир Антонович"/>
                 </lesson>
             </pair>
-        </day>
-        <day day_index="Вівторок">
         </day>
         <day day_index="Середа">
             <pair pair_index="1">
@@ -4253,8 +4243,6 @@
                     <teacher teacher_name="Стоян Володимир Антонович"/>
                 </lesson>
             </pair>
-        </day>
-        <day day_index="Вівторок">
         </day>
         <day day_index="Середа">
             <pair pair_index="1">
@@ -4724,14 +4712,8 @@
                 </lesson>
             </pair>
         </day>
-        <day day_index="Четвер">
-        </day>
-        <day day_index="П'ятниця">
-        </day>
     </group>
     <group group_name="ПЗС-2">
-        <day day_index="Понеділок">
-        </day>
         <day day_index="Вівторок">
             <pair pair_index="1">
                 <lesson subgroup="-" week="Обидва" format="Лекція" subject="Некласичні  логіки та їх застосування в розробці програмного забезпечення">
@@ -4759,8 +4741,6 @@
                     <teacher teacher_name="Демківський Євген Олександрович"/>
                 </lesson>
             </pair>
-        </day>
-        <day day_index="Середа">
         </day>
         <day day_index="Четвер">
             <pair pair_index="1">
@@ -4886,10 +4866,6 @@
                     <teacher teacher_name="Ляшко Сергій Іванович"/>
                 </lesson>
             </pair>
-        </day>
-        <day day_index="Четвер">
-        </day>
-        <day day_index="П'ятниця">
         </day>
     </group>
     <group group_name="ПС-3">
@@ -5028,8 +5004,6 @@
                     <teacher teacher_name="Колянова Тетяна Володимирівна"/>
                 </lesson>
             </pair>
-        </day>
-        <day day_index="Вівторок">
         </day>
         <day day_index="Середа">
             <pair pair_index="1">
@@ -5208,8 +5182,6 @@
                 </lesson>
             </pair>
         </day>
-        <day day_index="Вівторок">
-        </day>
         <day day_index="Середа">
             <pair pair_index="1">
                 <lesson subgroup="-" week="Обидва" format="Лекція" subject="Системне програмування">
@@ -5335,10 +5307,6 @@
                     <teacher teacher_name="Капустян Олена Анатоліївна"/>
                 </lesson>
             </pair>
-        </day>
-        <day day_index="Четвер">
-        </day>
-        <day day_index="П'ятниця">
         </day>
     </group>
     <group group_name="ТК-31">
@@ -5594,8 +5562,6 @@
                 </lesson>
             </pair>
         </day>
-        <day day_index="Вівторок">
-        </day>
         <day day_index="Середа">
             <pair pair_index="1">
                 <lesson subgroup="-" week="Обидва" format="Лекція" subject="Проблеми штучного інтелекту">
@@ -5698,8 +5664,6 @@
                     <teacher teacher_name="Деревянченко Олександр Валерійович"/>
                 </lesson>
             </pair>
-        </day>
-        <day day_index="Вівторок">
         </day>
         <day day_index="Середа">
             <pair pair_index="1">
@@ -6016,8 +5980,6 @@
                 </lesson>
             </pair>
         </day>
-        <day day_index="Вівторок">
-        </day>
         <day day_index="Середа">
             <pair pair_index="1">
                 <lesson subgroup="-" week="Непарний" format="Семінар" subject="Соціально-політичні студії">
@@ -6170,10 +6132,6 @@
                     <teacher teacher_name="Марченко Олександр Олександрович"/>
                 </lesson>
             </pair>
-        </day>
-        <day day_index="Четвер">
-        </day>
-        <day day_index="П'ятниця">
         </day>
     </group>
 </timetable>

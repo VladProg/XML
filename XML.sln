@@ -9,7 +9,9 @@ Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "CreatingXML", "CreatingXML\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{44A4EA5A-18B0-425C-817B-5C824CACF2D0}"
 	ProjectSection(SolutionItems) = preProject
+		timetable.html = timetable.html
 		timetable.xml = timetable.xml
+		transform.xsl = transform.xsl
 	EndProjectSection
 EndProject
 Global

@@ -204,6 +204,7 @@ namespace ParsingXML
             this.comboBoxTeacherName.Name = "comboBoxTeacherName";
             this.comboBoxTeacherName.Size = new System.Drawing.Size(651, 28);
             this.comboBoxTeacherName.TabIndex = 9;
+            this.comboBoxTeacherName.TextChanged += new System.EventHandler(this.ClearResults);
             this.comboBoxTeacherName.Validating += new System.ComponentModel.CancelEventHandler(this.comboBox_Validating);
             // 
             // label8
@@ -239,6 +240,7 @@ namespace ParsingXML
             this.comboBoxSubject.Name = "comboBoxSubject";
             this.comboBoxSubject.Size = new System.Drawing.Size(651, 28);
             this.comboBoxSubject.TabIndex = 8;
+            this.comboBoxSubject.TextChanged += new System.EventHandler(this.ClearResults);
             this.comboBoxSubject.Validating += new System.ComponentModel.CancelEventHandler(this.comboBox_Validating);
             // 
             // label4
@@ -278,6 +280,7 @@ namespace ParsingXML
             this.comboBoxFormat.Name = "comboBoxFormat";
             this.comboBoxFormat.Size = new System.Drawing.Size(129, 28);
             this.comboBoxFormat.TabIndex = 7;
+            this.comboBoxFormat.TextChanged += new System.EventHandler(this.ClearResults);
             this.comboBoxFormat.Validating += new System.ComponentModel.CancelEventHandler(this.comboBox_Validating);
             // 
             // label7
@@ -299,6 +302,7 @@ namespace ParsingXML
             this.comboBoxWeek.Name = "comboBoxWeek";
             this.comboBoxWeek.Size = new System.Drawing.Size(119, 28);
             this.comboBoxWeek.TabIndex = 6;
+            this.comboBoxWeek.TextChanged += new System.EventHandler(this.ClearResults);
             this.comboBoxWeek.Validating += new System.ComponentModel.CancelEventHandler(this.comboBox_Validating);
             // 
             // label2
@@ -320,6 +324,7 @@ namespace ParsingXML
             this.comboBoxSubgroup.Name = "comboBoxSubgroup";
             this.comboBoxSubgroup.Size = new System.Drawing.Size(88, 28);
             this.comboBoxSubgroup.TabIndex = 5;
+            this.comboBoxSubgroup.TextChanged += new System.EventHandler(this.ClearResults);
             this.comboBoxSubgroup.Validating += new System.ComponentModel.CancelEventHandler(this.comboBox_Validating);
             // 
             // label1
@@ -358,6 +363,7 @@ namespace ParsingXML
             this.comboBoxPairIndex.Name = "comboBoxPairIndex";
             this.comboBoxPairIndex.Size = new System.Drawing.Size(129, 28);
             this.comboBoxPairIndex.TabIndex = 4;
+            this.comboBoxPairIndex.TextChanged += new System.EventHandler(this.ClearResults);
             this.comboBoxPairIndex.Validating += new System.ComponentModel.CancelEventHandler(this.comboBox_Validating);
             // 
             // label3
@@ -379,6 +385,7 @@ namespace ParsingXML
             this.comboBoxDayIndex.Name = "comboBoxDayIndex";
             this.comboBoxDayIndex.Size = new System.Drawing.Size(119, 28);
             this.comboBoxDayIndex.TabIndex = 3;
+            this.comboBoxDayIndex.TextChanged += new System.EventHandler(this.ClearResults);
             this.comboBoxDayIndex.Validating += new System.ComponentModel.CancelEventHandler(this.comboBox_Validating);
             // 
             // label9
@@ -400,6 +407,7 @@ namespace ParsingXML
             this.comboBoxGroupName.Name = "comboBoxGroupName";
             this.comboBoxGroupName.Size = new System.Drawing.Size(88, 28);
             this.comboBoxGroupName.TabIndex = 2;
+            this.comboBoxGroupName.TextChanged += new System.EventHandler(this.ClearResults);
             this.comboBoxGroupName.Validating += new System.ComponentModel.CancelEventHandler(this.comboBox_Validating);
             // 
             // label10
@@ -425,6 +433,7 @@ namespace ParsingXML
             buttonHtml.TabStop = false;
             buttonHtml.Text = "Зберегти весь розклад в HTML";
             buttonHtml.UseVisualStyleBackColor = false;
+            buttonHtml.Click += new System.EventHandler(this.buttonHtml_Click);
             // 
             // groupBox3
             // 
@@ -468,7 +477,6 @@ namespace ParsingXML
             groupBox5.Size = new System.Drawing.Size(1124, 379);
             groupBox5.TabIndex = 3;
             groupBox5.TabStop = false;
-            groupBox5.Text = "Аналіз XML";
             // 
             // panel2
             // 

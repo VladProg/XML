@@ -18,10 +18,7 @@ namespace ParsingXML
         public const string XSL_FILE = @"C:\Users\268\source\repos\XML\transform.xsl";
         public const string HTML_FILE = @"C:\Users\268\source\repos\XML\timetable.html";
 
-        public Window()
-        {
-            InitializeComponent();
-        }
+        public Window() => InitializeComponent();
 
         private void radioButton_CheckedChanged(object sender, EventArgs e)
         {
@@ -32,6 +29,7 @@ namespace ParsingXML
             else if (radioButtonLinqToXml.Checked)
                 _xmlParserContext.CurrentParser = new XmlParsers.LinqToXmlParser(XML_FILE);
             buttonProcess.Visible = true;
+            ClearResults();
         }
 
         private void buttonProcess_Click(object sender, EventArgs e)
@@ -83,7 +81,14 @@ namespace ParsingXML
         private void comboBox_Validating(object sender, CancelEventArgs e)
         {
             var comboBox = sender as ComboBox;
-            e.Cancel = !comboBox.Items.Contains(comboBox.Text);
+            if (e.Cancel = !comboBox.Items.Contains(comboBox.Text))
+                MessageBox.Show("Оберіть значення з випадаючого списку");
         }
+
+        private void ClearResults(object sender = null, EventArgs e = null)
+            => richTextBoxResults.Clear();
+
+        private void buttonHtml_Click(object sender, EventArgs e)
+            => XslTransformer.Transform(XML_FILE, XSL_FILE, HTML_FILE);
     }
 }

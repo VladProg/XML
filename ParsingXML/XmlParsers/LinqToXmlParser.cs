@@ -27,8 +27,8 @@ namespace ParsingXML.XmlParsers
                    let current = new Lesson()
                    {
                        GroupName = element.Parent.Parent.Parent.Attribute("group_name").Value,
-                       DayIndex = element.Parent.Parent.Attribute("group_name").Value,
-                       PairIndex = element.Parent.Attribute("group_name").Value,
+                       DayIndex = element.Parent.Parent.Attribute("day_index").Value,
+                       PairIndex = element.Parent.Attribute("pair_index").Value,
                        Subgroup = element.Attribute("subgroup").Value,
                        Week = element.Attribute("week").Value,
                        Format = element.Attribute("format").Value,

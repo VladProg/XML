@@ -25,6 +25,8 @@ for g in groups:
         days[d][i] += [l]
     print(f'    <group group_name="{name}">')
     for d in range(5):
+        if not days[d]:
+            continue
         day = ['Понеділок', 'Вівторок', 'Середа', 'Четвер', 'П\'ятниця'][d]
         print(f'        <day day_index="{day}">')
         for i in sorted(days[d]):
