@@ -34,46 +34,54 @@ namespace ParsingXML
 
         private void buttonProcess_Click(object sender, EventArgs e)
         {
-            if (!groupBoxFilters.Visible)
+            try
             {
-                foreach (ComboBox cb in new[] {comboBoxGroupName,comboBoxDayIndex,comboBoxPairIndex,
+                if (!groupBoxFilters.Visible)
+                {
+                    foreach (ComboBox cb in new[] {comboBoxGroupName,comboBoxDayIndex,comboBoxPairIndex,
                                           comboBoxSubgroup,comboBoxWeek,comboBoxFormat,
                                           comboBoxSubject,comboBoxTeacherName})
-                    cb.Items.Add("");
-                foreach (string s in _xmlParserContext.GetAttributeValues("group_name"))
-                    comboBoxGroupName.Items.Add(s);
-                foreach (string s in _xmlParserContext.GetAttributeValues("day_index"))
-                    comboBoxDayIndex.Items.Add(s);
-                foreach (string s in _xmlParserContext.GetAttributeValues("pair_index"))
-                    comboBoxPairIndex.Items.Add(s);
-                foreach (string s in _xmlParserContext.GetAttributeValues("subgroup"))
-                    comboBoxSubgroup.Items.Add(s);
-                foreach (string s in _xmlParserContext.GetAttributeValues("week"))
-                    comboBoxWeek.Items.Add(s);
-                foreach (string s in _xmlParserContext.GetAttributeValues("format"))
-                    comboBoxFormat.Items.Add(s);
-                foreach (string s in _xmlParserContext.GetAttributeValues("subject").OrderBy(x => x))
-                    comboBoxSubject.Items.Add(s);
-                foreach (string s in _xmlParserContext.GetAttributeValues("teacher_name").OrderBy(x => x))
-                    comboBoxTeacherName.Items.Add(s);
-                groupBoxFilters.Visible = true;
-                buttonProcess.Text = "Шукати";
+                        cb.Items.Add("");
+                    foreach (string s in _xmlParserContext.GetAttributeValues("group_name"))
+                        comboBoxGroupName.Items.Add(s);
+                    foreach (string s in _xmlParserContext.GetAttributeValues("day_index"))
+                        comboBoxDayIndex.Items.Add(s);
+                    foreach (string s in _xmlParserContext.GetAttributeValues("pair_index"))
+                        comboBoxPairIndex.Items.Add(s);
+                    foreach (string s in _xmlParserContext.GetAttributeValues("subgroup"))
+                        comboBoxSubgroup.Items.Add(s);
+                    foreach (string s in _xmlParserContext.GetAttributeValues("week"))
+                        comboBoxWeek.Items.Add(s);
+                    foreach (string s in _xmlParserContext.GetAttributeValues("format"))
+                        comboBoxFormat.Items.Add(s);
+                    foreach (string s in _xmlParserContext.GetAttributeValues("subject").OrderBy(x => x))
+                        comboBoxSubject.Items.Add(s);
+                    foreach (string s in _xmlParserContext.GetAttributeValues("teacher_name").OrderBy(x => x))
+                        comboBoxTeacherName.Items.Add(s);
+                    groupBoxFilters.Visible = true;
+                    buttonProcess.Text = "Шукати";
+                }
+                else
+                    richTextBoxResults.Text = string.Join("\n",
+                        from lesson in _xmlParserContext.FilterLessons(
+                            comboBoxGroupName.Text, comboBoxDayIndex.Text, comboBoxPairIndex.Text,
+                            comboBoxSubgroup.Text, comboBoxWeek.Text, comboBoxFormat.Text,
+                            comboBoxSubject.Text, comboBoxTeacherName.Text)
+                        select $"Група: {lesson.GroupName}\n" +
+                               $"День: {lesson.DayIndex}\n" +
+                               $"Пара: {lesson.PairIndex}\n" +
+                               $"Підгрупа: {lesson.Subgroup}\n" +
+                               $"Тиждень: {lesson.Week}\n" +
+                               $"Формат: {lesson.Format}\n" +
+                               $"Предмет: {lesson.Subject}\n" +
+                               $"Викладачі:\n{string.Join('\n', lesson.TeacherNames)}\n"
+                        );
             }
-            else
-                richTextBoxResults.Text = string.Join("\n",
-                    from lesson in _xmlParserContext.FilterLessons(
-                        comboBoxGroupName.Text, comboBoxDayIndex.Text, comboBoxPairIndex.Text,
-                        comboBoxSubgroup.Text, comboBoxWeek.Text, comboBoxFormat.Text,
-                        comboBoxSubject.Text, comboBoxTeacherName.Text)
-                    select $"Група: {lesson.GroupName}\n" +
-                           $"День: {lesson.DayIndex}\n" +
-                           $"Пара: {lesson.PairIndex}\n" +
-                           $"Підгрупа: {lesson.Subgroup}\n" +
-                           $"Тиждень: {lesson.Week}\n" +
-                           $"Формат: {lesson.Format}\n" +
-                           $"Предмет: {lesson.Subject}\n" +
-                           $"Викладачі:\n{string.Join('\n', lesson.TeacherNames)}\n"
-                    );
+            catch (Exception ex)
+            {
+                MessageBox.Show("Виявлена помилка: " + ex);
+                Application.Exit();
+            }
         }
 
         private void comboBox_Validating(object sender, CancelEventArgs e)
@@ -88,8 +96,16 @@ namespace ParsingXML
 
         private void buttonHtml_Click(object sender, EventArgs e)
         {
-            XslTransformer.Transform(XML_FILE, XSL_FILE, HTML_FILE);
-            Process.Start("explorer.exe", HTML_FILE);
+            try
+            {
+                XslTransformer.Transform(XML_FILE, XSL_FILE, HTML_FILE);
+                Process.Start("explorer.exe", HTML_FILE);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Виявлена помилка: " + ex);
+                Application.Exit();
+            }
         }
     }
 }
