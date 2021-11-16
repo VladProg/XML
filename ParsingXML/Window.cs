@@ -60,37 +60,20 @@ namespace ParsingXML
                 buttonProcess.Text = "Шукати";
             }
             else
-            {
-                ClearResults();
-                richTextBoxResults.Visible = false;
-                foreach (Lesson lesson in _xmlParserContext.FilterLessons(
-                            comboBoxGroupName.Text, comboBoxDayIndex.Text, comboBoxPairIndex.Text,
-                            comboBoxSubgroup.Text, comboBoxWeek.Text, comboBoxFormat.Text,
-                            comboBoxSubject.Text, comboBoxTeacherName.Text))
-                {
-                    void WriteText(string text, bool bold)
-                    {
-                        richTextBoxResults.SelectionFont = new("Segoe UI", 9F,
-                            bold ? FontStyle.Bold : FontStyle.Regular, GraphicsUnit.Point);
-                        richTextBoxResults.AppendText(text);
-                    }
-                    void AddRow(string name, string value)
-                    {
-                        WriteText(name + ": ", bold: true);
-                        WriteText(value + "\n", bold: false);
-                    }
-                    AddRow("Група", lesson.GroupName);
-                    AddRow("День", lesson.DayIndex);
-                    AddRow("Пара", lesson.PairIndex);
-                    AddRow("Підгрупа", lesson.Subgroup);
-                    AddRow("Тиждень", lesson.Week);
-                    AddRow("Формат", lesson.Format);
-                    AddRow("Предмет", lesson.Subject);
-                    AddRow("Викладачі", string.Join("", from teacher in lesson.TeacherNames select "\n" + teacher));
-                    WriteText("\n", false);
-                }
-                richTextBoxResults.Visible = true;
-            }
+                richTextBoxResults.Text = string.Join("\n",
+                    from lesson in _xmlParserContext.FilterLessons(
+                        comboBoxGroupName.Text, comboBoxDayIndex.Text, comboBoxPairIndex.Text,
+                        comboBoxSubgroup.Text, comboBoxWeek.Text, comboBoxFormat.Text,
+                        comboBoxSubject.Text, comboBoxTeacherName.Text)
+                    select $"Група: {lesson.GroupName}\n" +
+                           $"День: {lesson.DayIndex}\n" +
+                           $"Пара: {lesson.PairIndex}\n" +
+                           $"Підгрупа: {lesson.Subgroup}\n" +
+                           $"Тиждень: {lesson.Week}\n" +
+                           $"Формат: {lesson.Format}\n" +
+                           $"Предмет: {lesson.Subject}\n" +
+                           $"Викладачі:\n{string.Join('\n', lesson.TeacherNames)}\n"
+                    );
         }
 
         private void comboBox_Validating(object sender, CancelEventArgs e)
