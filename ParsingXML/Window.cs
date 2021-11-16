@@ -37,8 +37,8 @@ namespace ParsingXML
             if (!groupBoxFilters.Visible)
             {
                 foreach (ComboBox cb in new[] {comboBoxGroupName,comboBoxDayIndex,comboBoxPairIndex,
-                                               comboBoxSubgroup,comboBoxWeek,comboBoxFormat,
-                                               comboBoxSubject,comboBoxTeacherName})
+                                          comboBoxSubgroup,comboBoxWeek,comboBoxFormat,
+                                          comboBoxSubject,comboBoxTeacherName})
                     cb.Items.Add("");
                 foreach (string s in _xmlParserContext.GetAttributeValues("group_name"))
                     comboBoxGroupName.Items.Add(s);
@@ -62,57 +62,34 @@ namespace ParsingXML
             else
             {
                 ClearResults();
-                foreach(Lesson lesson in _xmlParserContext.FilterLessons(
+                richTextBoxResults.Visible = false;
+                foreach (Lesson lesson in _xmlParserContext.FilterLessons(
                             comboBoxGroupName.Text, comboBoxDayIndex.Text, comboBoxPairIndex.Text,
                             comboBoxSubgroup.Text, comboBoxWeek.Text, comboBoxFormat.Text,
                             comboBoxSubject.Text, comboBoxTeacherName.Text))
                 {
-                    Label CreateLabel(string text, bool bold)
+                    void WriteText(string text, bool bold)
                     {
-                        Label label = new();
-                        label.Text = text;
-                        label.Font = new("Segoe UI", 9F, bold ? FontStyle.Bold : FontStyle.Regular, GraphicsUnit.Point);
-                        label.AutoSize = true;
-                        return label;
+                        richTextBoxResults.SelectionFont = new("Segoe UI", 9F,
+                            bold ? FontStyle.Bold : FontStyle.Regular, GraphicsUnit.Point);
+                        richTextBoxResults.AppendText(text);
                     }
-
-                    FlowLayoutPanel CreateRow(string name, string value)
+                    void AddRow(string name, string value)
                     {
-                        FlowLayoutPanel row;
-                        row = new();
-                        row.Controls.Add(CreateLabel(name + ": ", bold: true));
-                        row.Controls.Add(CreateLabel(value, bold: false));
-                        row.AutoSize = true;
-                        row.Dock = DockStyle.Top;
-                        return row;
+                        WriteText(name + ": ", bold: true);
+                        WriteText(value + "\n", bold: false);
                     }
-
-                    GroupBox result = new();
-                    result.Controls.Add(CreateRow("Група", lesson.GroupName));
-                    result.Controls.Add(CreateRow("День", lesson.DayIndex));
-                    result.Controls.Add(CreateRow("Пара", lesson.PairIndex));
-                    result.Controls.Add(CreateRow("Підгрупа", lesson.Subgroup));
-                    result.Controls.Add(CreateRow("Тиждень", lesson.Week));
-                    result.Controls.Add(CreateRow("Формат", lesson.Format));
-                    result.Controls.Add(CreateRow("Предмет", lesson.Subject));
-                    result.Dock = DockStyle.Top;
-                    result.AutoSize = true;
-                    panelResults.Controls.Add(result);
+                    AddRow("Група", lesson.GroupName);
+                    AddRow("День", lesson.DayIndex);
+                    AddRow("Пара", lesson.PairIndex);
+                    AddRow("Підгрупа", lesson.Subgroup);
+                    AddRow("Тиждень", lesson.Week);
+                    AddRow("Формат", lesson.Format);
+                    AddRow("Предмет", lesson.Subject);
+                    AddRow("Викладачі", string.Join("", from teacher in lesson.TeacherNames select "\n" + teacher));
+                    WriteText("\n", false);
                 }
-                //richTextBoxResults.Text = string.Join("\n",
-                //    from lesson in _xmlParserContext.FilterLessons(
-                //        comboBoxGroupName.Text, comboBoxDayIndex.Text, comboBoxPairIndex.Text,
-                //        comboBoxSubgroup.Text, comboBoxWeek.Text, comboBoxFormat.Text,
-                //        comboBoxSubject.Text, comboBoxTeacherName.Text)
-                //    select $"Група: {lesson.GroupName}\n" +
-                //           $"День: {lesson.DayIndex}\n" +
-                //           $"Пара: {lesson.PairIndex}\n" +
-                //           $"Підгрупа: {lesson.Subgroup}\n" +
-                //           $"Тиждень: {lesson.Week}\n" +
-                //           $"Формат: {lesson.Format}\n" +
-                //           $"Предмет: {lesson.Subject}\n" +
-                //           $"Викладачі:\n{string.Join('\n', lesson.TeacherNames)}\n"
-                //    );
+                richTextBoxResults.Visible = true;
             }
         }
 
@@ -124,7 +101,7 @@ namespace ParsingXML
         }
 
         private void ClearResults(object sender = null, EventArgs e = null)
-            => panelResults.Controls.Clear();
+            => richTextBoxResults.Clear();
 
         private void buttonHtml_Click(object sender, EventArgs e)
         {
